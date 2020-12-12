@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tray : Item
 {
     private GameObject[] drinks;
-
+    private HUDManager HUDManager;
     [SerializeField]
     private int maxSize;
 
@@ -20,6 +20,8 @@ public class Tray : Item
 
     private void Awake()
     {
+        HUDManager = FindObjectOfType<HUDManager>();
+
         drinkNumber = 0;
         drinks = new GameObject[maxSize];
         drinkPlace = new bool[drinkTransforms.Length];
@@ -62,6 +64,7 @@ public class Tray : Item
         drink.transform.localScale = Vector3.one;
         drinks[place] = drink;
         drinkNumber++;
+        HUDManager.AddDrinkToHud(place, colors[(int)drink.GetComponent<Drink>().DrinkType]);
         Debug.Log($"Added {drink.GetComponent<Drink>().DrinkType} to {place} place on tray");
     }
 
@@ -70,6 +73,7 @@ public class Tray : Item
         Debug.Log($"Removed {drink.GetComponent<Drink>().DrinkType} from {place} place on tray");
         drinks[place] = null;
         drinkPlace[place] = false;
+        HUDManager.RemoveDrinkFromHud(place);
         drinkNumber--;
     }
 
@@ -102,4 +106,12 @@ public class Tray : Item
         Debug.Log("Removed all drinks from tray");
 
     }
+
+
+    public Color[] colors = new Color[]
+{
+        Color.red,
+        Color.green,
+        Color.cyan
+};
 }

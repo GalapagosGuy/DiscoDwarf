@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f95483b5760c844dbfe7710cf75d8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tray: {fileID: 7510865091593249565}
   item: {fileID: 7510865091593249565}
   itemSlot: {fileID: 0}
 --- !u!114 &9103953676196942843

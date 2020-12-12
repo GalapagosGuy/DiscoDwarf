@@ -9,8 +9,6 @@ public class MusicManager : MonoBehaviour
     public PlayerMovement movement;
     public GameObject beatHitMarker = null;
 
-    public GameObject[] musicListenersGO = null;
-
     [SerializeField]
     private float beatTempo = 120.0f;
     [SerializeField]
@@ -41,17 +39,7 @@ public class MusicManager : MonoBehaviour
 
         StartPlayingMusic();
 
-        List<IMusicListener> listOfListeners = new List<IMusicListener>();
-
-        foreach (GameObject go in musicListenersGO)
-        {
-            if (go.GetComponent<IMusicListener>() != null)
-            {
-                listOfListeners.Add(go.GetComponent<IMusicListener>());
-            }
-        }
-
-        musicListeners = listOfListeners.ToArray();
+        musicListeners = GameObject.FindObjectsOfType<IMusicListener>();
     }
 
     public void StartPlayingMusic()

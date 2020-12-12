@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : IMusicListener
 {
     public PlayerMovement playerMovement;
     private InteractableObject interactableObject;
@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     {
         ProcessMovement();
     }
+
+    private bool canInteractWithObject = false;
 
     private void ProcessMovement()
     {
@@ -36,15 +38,40 @@ public class PlayerController : MonoBehaviour
         {
             playerMovement?.Move(MovementDirection.Right);
         }
-        else if(Input.GetKeyDown(KeyCode.J))
+        else if (Input.GetKeyDown(KeyCode.J))
         {
+            if (!MusicManager.Instance.CanDoAction)
+                ComboCounter.Instance.BreakCombo();
+
+            if (!MusicManager.Instance.CanDoAction || !canInteractWithObject)
+                return;
+
+            ComboCounter.Instance?.InputPressed();
+
             if (interactableObject)
                 interactableObject.Use(itemSlot);
+
+            canInteractWithObject = false;
         }
 
     }
     public void SetInteractableObject(InteractableObject obj)
     {
         interactableObject = obj;
+    }
+
+    public override void OnBeatStart()
+    {
+        canInteractWithObject = true;
+    }
+
+    public override void OnBeatCenter()
+    {
+        //hi
+    }
+
+    public override void OnBeatFinished()
+    {
+        canInteractWithObject = false;
     }
 }

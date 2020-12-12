@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MusicBeatDisplay : MonoBehaviour, IMusicListener
+public class MusicBeatDisplay : IMusicListener
 {
     [SerializeField]
     private float speed = 15.0f;
@@ -20,19 +20,19 @@ public class MusicBeatDisplay : MonoBehaviour, IMusicListener
         mainBeatImage.color = color;
     }
 
-    public void OnBeatCenter()
+    public override void OnBeatCenter()
     {
         Color color = mainBeatImage.color;
         color.a = 1.0f;
         mainBeatImage.color = color;
     }
 
-    public void OnBeatFinished()
+    public override void OnBeatFinished()
     {
 
     }
 
-    public void OnBeatStart()
+    public override void OnBeatStart()
     {
 
     }

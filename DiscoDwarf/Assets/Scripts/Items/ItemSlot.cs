@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
+    public GameObject tray = null;
+
     [SerializeField]
     private GameObject item = null;
 
@@ -14,7 +16,7 @@ public class ItemSlot : MonoBehaviour
 
     public void AddItemToSlot(GameObject item)
     {
-        if(!this.item)
+        if (!this.item)
         {
             this.item = item;
             item.transform.position = itemSlot.transform.position;
@@ -28,6 +30,20 @@ public class ItemSlot : MonoBehaviour
     public void RemoveItemFromSlot()
     {
         Debug.Log($"Player's {item.name} from itemslot got removed");
-        this.item = null;  
+        this.item = null;
+    }
+
+    public void ShowTray()
+    {
+        item = tray;
+
+        tray.SetActive(true);
+    }
+
+    public void HideTray()
+    {
+        item = null;
+
+        tray.SetActive(false);
     }
 }

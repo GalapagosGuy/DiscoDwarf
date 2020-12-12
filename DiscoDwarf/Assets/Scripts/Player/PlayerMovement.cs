@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour, IMusicListener
+public class PlayerMovement : IMusicListener
 {
     public Animator playerAnimator;
 
@@ -75,17 +75,17 @@ public class PlayerMovement : MonoBehaviour, IMusicListener
             currentMovementSpeed = minimumSpeed;
     }
 
-    public void OnBeatStart()
+    public override void OnBeatStart()
     {
         canChangeDirection = true;
     }
 
-    public void OnBeatCenter()
+    public override void OnBeatCenter()
     {
 
     }
 
-    public void OnBeatFinished()
+    public override void OnBeatFinished()
     {
         canChangeDirection = false;
     }

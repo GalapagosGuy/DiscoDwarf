@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour, IMusicListener
 {
+    public Animator playerAnimator;
+
     [SerializeField]
     private float movementTime = 0.1f;
     [SerializeField]
@@ -43,15 +45,19 @@ public class PlayerMovement : MonoBehaviour, IMusicListener
                 break;
             case MovementDirection.Left:
                 movementDirectionVector = Vector3.left;
+                playerAnimator.gameObject.transform.localRotation = Quaternion.Euler(45.0f, 0, playerAnimator.gameObject.transform.localRotation.eulerAngles.z);
                 break;
             case MovementDirection.Right:
                 movementDirectionVector = Vector3.right;
+                playerAnimator.gameObject.transform.localRotation = Quaternion.Euler(-45.0f, 180, playerAnimator.gameObject.transform.localRotation.eulerAngles.z);
                 break;
         }
 
         canChangeDirection = false;
 
         currentMovementSpeed = movementSpeed;
+
+        playerAnimator?.SetTrigger("rideTrigger");
     }
 
     private void Update()

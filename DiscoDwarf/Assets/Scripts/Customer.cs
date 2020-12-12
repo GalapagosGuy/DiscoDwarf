@@ -26,7 +26,7 @@ public class Customer : InteractableObject
                 {
                     AddHappiness(happinessBonus);
                     GoHome();
-                    Debug.Log("Customer got desired drunk");
+                    Debug.Log($"Customer got desired drink - {desiredDrink}");
                 }
                 else
                     Debug.Log("No desired drink on tray");

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7585545154565564288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4215679518385567206}
+  m_Layer: 0
+  m_Name: DistancePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4215679518385567206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7585545154565564288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.09, z: 0.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8181900854567231255}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8181900854567231272
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +39,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8181900854567231255}
+  - component: {fileID: 409768385752579959}
+  - component: {fileID: 3989664434092728538}
   m_Layer: 0
   m_Name: DancingOrc
   m_TagString: Untagged
@@ -28,9 +60,37 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 5016164271680020528}
+  - {fileID: 4215679518385567206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &409768385752579959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181900854567231272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278530b83c9f7954aad4f65886a1929a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancePoint: {fileID: 7585545154565564288}
+  layerStep: 10
+--- !u!135 &3989664434092728538
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181900854567231272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0, y: 1.33, z: 0}
 --- !u!1001 &8181900854608938468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,15 +120,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3753483856587531732, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.626958
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3753483856587531732, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2444272
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3753483856587531732, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.778902
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3753483856587531732, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}
       propertyPath: m_LocalRotation.w

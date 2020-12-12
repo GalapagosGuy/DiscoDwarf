@@ -20,6 +20,7 @@ public class DrinkMachine : InteractableObject
         {
             if (itemInHand.GetComponent<Tray>().HasFreeSpace())
             {
+                GetComponent<AudioSource>().Play();
                 itemInHand.GetComponent<Tray>().AddDrink(Instantiate(servedDrink, transform.position, Quaternion.identity));
             }
             else

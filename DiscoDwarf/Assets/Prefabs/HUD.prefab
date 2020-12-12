@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6184269802640408107}
   - component: {fileID: 5630441093715969388}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HappyMeter emotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,6 +415,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happyMeterImage: {fileID: 2564991667311685401}
+  happyMeterEmotion: {fileID: 5630441093715969388}
+  emotions:
+  - {fileID: 7228512672991230164, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
+  - {fileID: 100120756227725925, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
+  - {fileID: 1695600278070250875, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   happinessMultiplier: 1
   desiredDrinksHolder:
   - {fileID: 3040309276542206611}

@@ -2123,10 +2123,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2188581716843911215, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: m_Name
-      value: HappyMeter emotion
-      objectReference: {fileID: 0}
     - target: {fileID: 2564991667764380848, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2211,26 +2207,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: happyMeterEmotion
-      value: 
-      objectReference: {fileID: 2144218276}
-    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: emotions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: emotions.Array.data[0]
-      value: 
-      objectReference: {fileID: 7228512672991230164, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
-    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: emotions.Array.data[1]
-      value: 
-      objectReference: {fileID: 100120756227725925, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
-    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: emotions.Array.data[2]
-      value: 
-      objectReference: {fileID: 1695600278070250875, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
     - target: {fileID: 2564991667764380852, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -2337,17 +2313,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6067721929463682845, guid: cf7839eb0aa203541aa0472b47d97e5c, type: 3}
   m_PrefabInstance: {fileID: 683970435}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2144218276 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5630441093715969388, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-  m_PrefabInstance: {fileID: 1833469692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2145653097
 GameObject:
   m_ObjectHideFlags: 0

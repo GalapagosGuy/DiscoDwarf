@@ -6,7 +6,7 @@ public class WaterOnFloor : MonoBehaviour
 {
     private HUDManager hudManager;
     [SerializeField]
-    private float substractValue = 0.3f;
+    private float substractValue = 0.2f;
     private void Awake()
     {
         hudManager = FindObjectOfType<HUDManager>();

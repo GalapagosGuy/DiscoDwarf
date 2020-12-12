@@ -22,8 +22,9 @@ public class WaterOnFloor : MonoBehaviour
     {
         if (other.GetComponentInChildren<ItemSlot>() && other.GetComponentInChildren<ItemSlot>().Item != null && other.GetComponentInChildren<ItemSlot>().Item.GetComponent<Broom>())
         {
+            other.GetComponentInChildren<ItemSlot>().Item.GetComponent<Broom>().PlayBroomingSound();
             hudManager.AddPoints(pointBonus);
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.1f);
         }
     }
 }

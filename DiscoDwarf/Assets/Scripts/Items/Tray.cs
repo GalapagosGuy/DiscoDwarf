@@ -44,6 +44,7 @@ public class Tray : Item
 
     public void AddDrink(GameObject drink)
     {
+        Debug.Log($"Added {drink.GetComponent<Drink>().DrinkType} to tray");
         drinks.Add(drink);
         drink.transform.SetParent(this.transform);
         drink.transform.position = drinkTransforms[drinks.Count - 1].transform.position;
@@ -51,6 +52,7 @@ public class Tray : Item
 
     public void RemoveDrink(GameObject drink)
     {
+        Debug.Log($"Removed {drink.GetComponent<Drink>().DrinkType} from tray");
         drinks.Remove(drink);
     }
 
@@ -62,5 +64,7 @@ public class Tray : Item
 
         }
         drinks.Clear();
+        Debug.Log("Removed all drinks from tray");
+
     }
 }

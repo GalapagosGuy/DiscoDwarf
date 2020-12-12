@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class Customer : InteractableObject
 {
+    [SerializeField]
+    private float happinessMultiplier = 2f;
+
     private Drink.DRINKTYPE desiredDrink;
     private Image drinkImage;
     private float happinessBonus = 10f;
+
+    private float currentHappiness;
+    private float maxHappiness;
 
     private Color[] colors = new Color[]
     {
@@ -44,6 +50,13 @@ public class Customer : InteractableObject
         DesireRandomDrink();
     }
 
+    private void Update()
+    {
+        if(currentHappiness > 0)
+        {
+            currentHappiness -= Time.deltaTime * happinessMultiplier;
+        }
+    }
     private void DesireRandomDrink()
     {
         desiredDrink = (Drink.DRINKTYPE)Random.Range(0, 3);

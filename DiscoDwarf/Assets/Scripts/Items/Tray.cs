@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,20 @@ public class Tray : Item
             return false;
     }
 
+    public bool SearchForDesireDrink(Drink.DRINKTYPE desiredDrink)
+    {
+        for(int i = 0; i < drinks.Count; i++)
+        {
+            if (drinks[i].GetComponent<Drink>().DrinkType == desiredDrink)
+            {
+                Destroy(drinks[i]);
+                drinks.Remove(drinks[i]);
+                return true;
+            }     
+        }
+        return false;
+    }
+
     public void AddDrink(GameObject drink)
     {
         drinks.Add(drink);
@@ -37,5 +52,15 @@ public class Tray : Item
     public void RemoveDrink(GameObject drink)
     {
         drinks.Remove(drink);
+    }
+
+    public void RemoveAllDrinks()
+    {
+        for (int i = 0; i < drinks.Count; i++)
+        {
+            Destroy(drinks[i]);
+
+        }
+        drinks.Clear();
     }
 }

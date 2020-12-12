@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     private void PlayerActions()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if(interactableObject)
                 interactableObject.Use(itemSlot);

@@ -56,6 +56,12 @@ public class ComboCounter : MonoBehaviour, IMusicListener
         anyInputProcessed = true;
     }
 
+    public void BreakCombo()
+    {
+        combo = 0;
+        counter.text = combo + "";
+    }
+
     private void CheckIfAnyInputPressed()
     {
         if (!anyInputProcessed && counter)

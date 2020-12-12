@@ -32,6 +32,9 @@ public class PlayerMovement : MonoBehaviour, IMusicListener
 
     public void Move(MovementDirection movementDirection)
     {
+        if (!MusicManager.Instance.CanDoAction)
+            ComboCounter.Instance?.BreakCombo();
+
         if (!MusicManager.Instance.CanDoAction || !canChangeDirection)
             return;
 

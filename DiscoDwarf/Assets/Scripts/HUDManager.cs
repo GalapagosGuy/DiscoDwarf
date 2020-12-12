@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
@@ -19,10 +20,8 @@ public class HUDManager : MonoBehaviour
     [Header("Drinks parameters")]
     [SerializeField]
     private GameObject[] desiredDrinksHolder;
-
     [SerializeField]
     private GameObject drinksHolder;
-
     private GameObject[] currentDrinks;
     [SerializeField]
     private GameObject drinkPrefab;
@@ -30,9 +29,16 @@ public class HUDManager : MonoBehaviour
     [Header("Points")]
     [SerializeField]
     private TextMeshProUGUI pointsText;
-
     [SerializeField]
     private GameObject pointsMultiplierObject;
+
+    [Header("End game canvas")]
+    [SerializeField]
+    private GameObject EndGameCanvas;
+    [SerializeField]
+    private TextMeshProUGUI endGameResult;
+    [SerializeField]
+    private TextMeshProUGUI endGamePoints;
 
     private int points;
     private float pointsMultiplier;
@@ -75,6 +81,19 @@ public class HUDManager : MonoBehaviour
             happyMeterEmotion.sprite = emotions[2];
 
         happyMeterImage.color = Color.Lerp(Color.red, Color.green, happyMeter/maxHappyMeter);
+        if (happyMeter <= 0)
+            EndGame("You funked up");
+    }
+
+    private void EndGame(string result)
+    {
+        EndGameCanvas.SetActive(true);
+        endGameResult.text = result;
+        endGamePoints.text = points.ToString();
+    }
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void AddPoints(int value)
     {

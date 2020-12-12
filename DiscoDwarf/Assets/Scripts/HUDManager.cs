@@ -8,6 +8,10 @@ public class HUDManager : MonoBehaviour
 {
     [SerializeField]
     private Image happyMeterImage;
+    [SerializeField]
+    private Image happyMeterEmotion;
+    [SerializeField]
+    private Sprite[] emotions;
 
     [SerializeField]
     private float happinessMultiplier;
@@ -48,6 +52,13 @@ public class HUDManager : MonoBehaviour
     private void UpdateHappyMeter()
     {
         happyMeterImage.fillAmount = happyMeter / maxHappyMeter;
+        if (happyMeter > 66)
+            happyMeterEmotion.sprite = emotions[0];
+        else if(happyMeter > 33 && happyMeter <= 66)
+            happyMeterEmotion.sprite = emotions[1];
+        else if (happyMeter <= 33)
+            happyMeterEmotion.sprite = emotions[2];
+
         happyMeterImage.color = Color.Lerp(Color.red, Color.green, happyMeter/maxHappyMeter);
     }
 

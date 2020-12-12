@@ -71,7 +71,7 @@ public class Customer : InteractableObject
                 {
                     AddHappiness(happinessBonus);
                     SpriteLayerChanger.Instance.RemoveReference(this.GetComponentInChildren<SpritesContainer>());
-
+                    hudManager.RemoveDesiredDrink(desiredDrink);
                     GoHome();
                     Debug.Log($"Customer got desired drink - {desiredDrink}");
                 }
@@ -91,6 +91,7 @@ public class Customer : InteractableObject
         currentHappiness = maxHappiness;
         RandomAppearance();
         DesireRandomDrink();
+        hudManager.AddDesiredDrink(desiredDrink);
     }
 
     private void RandomAppearance()
@@ -134,13 +135,13 @@ public class Customer : InteractableObject
         else if (currentHappiness > 33 && currentHappiness <= 66)
         {
             emotion = EMOTION.Irritated;
-            happinessSubstract = 1f;
+            happinessSubstract = 0.5f;
 
         }
         else if (currentHappiness < 33)
         {
             emotion = EMOTION.Angry;
-            happinessSubstract = 2f;
+            happinessSubstract = 1.25f;
         }
 
         emotionImage.sprite = emotionSprites[(int)emotion];

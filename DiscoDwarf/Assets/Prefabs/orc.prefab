@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 3753483856587531732}
   - component: {fileID: 3753483856587531733}
   - component: {fileID: 3753483856587531730}
+  - component: {fileID: 1373470556912183926}
   m_Layer: 0
   m_Name: orc
   m_TagString: Untagged
@@ -515,6 +516,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &1373470556912183926
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3753483856587531731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0.533031, y: 1.25, z: 0}
 --- !u!1 &3753483857379416421
 GameObject:
   m_ObjectHideFlags: 0

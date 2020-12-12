@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class HUDManager : MonoBehaviour
 
     [SerializeField]
     private float happinessMultiplier;
+
+    [SerializeField]
+    private GameObject[] desiredDrinksHolder;
 
     [SerializeField]
     private GameObject drinksHolder;
@@ -21,6 +25,14 @@ public class HUDManager : MonoBehaviour
 
     private float happyMeter;
     private float maxHappyMeter = 100f;
+
+    private int[] desiredDrinks = new int[3];
+
+    private struct DesiredDrinks
+    {
+        private int redDrinks;
+        private int greenDrinks;
+    }
 
     private void Start()
     {
@@ -37,6 +49,19 @@ public class HUDManager : MonoBehaviour
     {
         happyMeterImage.fillAmount = happyMeter / maxHappyMeter;
         happyMeterImage.color = Color.Lerp(Color.red, Color.green, happyMeter/maxHappyMeter);
+    }
+
+    public void AddDesiredDrink(Drink.DRINKTYPE drinkType)
+    {
+        desiredDrinks[(int)drinkType] += 1;
+        desiredDrinksHolder[(int)drinkType].GetComponent<TextMeshProUGUI>().text = desiredDrinks[(int)drinkType].ToString();
+    }
+
+    public void RemoveDesiredDrink(Drink.DRINKTYPE drinkType)
+    {
+        desiredDrinks[(int)drinkType] -= 1;
+        desiredDrinksHolder[(int)drinkType].GetComponent<TextMeshProUGUI>().text = desiredDrinks[(int)drinkType].ToString();
+
     }
 
     public void AddDrinkToHud(int place, Color color)

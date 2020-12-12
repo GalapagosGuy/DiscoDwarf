@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ComboCounter : MonoBehaviour, IMusicListener
+public class ComboCounter : IMusicListener
 {
     public static ComboCounter Instance = null;
 
@@ -30,17 +30,17 @@ public class ComboCounter : MonoBehaviour, IMusicListener
     private bool anyInputProcessed = false;
     private int combo = 0;
 
-    public void OnBeatCenter()
+    public override void OnBeatCenter()
     {
 
     }
 
-    public void OnBeatFinished()
+    public override void OnBeatFinished()
     {
         CheckIfAnyInputPressed();
     }
 
-    public void OnBeatStart()
+    public override void OnBeatStart()
     {
         anyInputProcessed = false;
     }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMusicListener
+public abstract class IMusicListener : MonoBehaviour
 {
-    void OnBeatStart();
-    void OnBeatCenter();
-    void OnBeatFinished();
+    public abstract void OnBeatStart();
+    public abstract void OnBeatCenter();
+    public abstract void OnBeatFinished();
 }

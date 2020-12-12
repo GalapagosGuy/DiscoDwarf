@@ -9,6 +9,7 @@ public class MusicBeatDisplay : MonoBehaviour, IMusicListener
     private float speed = 15.0f;
 
     public Image mainBeatImage = null;
+    public Image smallInfoImage = null;
 
     private bool increaseAlpha = false;
     private bool decreaseAlpha = false;
@@ -32,18 +33,21 @@ public class MusicBeatDisplay : MonoBehaviour, IMusicListener
     {
         //increaseAlpha = false;
         //decreaseAlpha = true;
-        mainBeatImage.gameObject.SetActive(false);
+        smallInfoImage.color = Color.green;
     }
 
     public void OnBeatFinished()
     {
         //decreaseAlpha = false;
+        mainBeatImage.gameObject.SetActive(false);
 
+        smallInfoImage.color = Color.black;
     }
 
     public void OnBeatStart()
     {
         mainBeatImage.gameObject.SetActive(true);
         //increaseAlpha = true;
+        smallInfoImage.color = Color.green;
     }
 }

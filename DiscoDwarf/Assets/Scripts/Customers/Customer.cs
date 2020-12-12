@@ -1,10 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Customer : InteractableObject
 {
+    [System.Serializable]
+    public struct Body
+    {
+        public GameObject arm;
+        public GameObject skin;
+        public GameObject chest;
+        public GameObject bottom;
+        public GameObject hair;
+    }
+
+    [SerializeField]
+    private Color[] hairColors;
+
+    [SerializeField]
+    private Body bodyParts;
+
     [SerializeField]
     private Image emotionImage;
 
@@ -71,9 +89,26 @@ public class Customer : InteractableObject
     {
         hudManager = FindObjectOfType<HUDManager>();
         currentHappiness = maxHappiness;
+        RandomAppearance();
         DesireRandomDrink();
     }
 
+    private void RandomAppearance()
+    {
+        //bodyParts.arm.GetComponent<SpriteRenderer>().color = RandomColor();
+        //bodyParts.skin.GetComponent<SpriteRenderer>().color = Color.green * 0.75f;
+        bodyParts.chest.GetComponent<SpriteRenderer>().color = RandomColor();
+        bodyParts.bottom.GetComponent<SpriteRenderer>().color = RandomColor();
+        bodyParts.hair.GetComponent<SpriteRenderer>().color = RandomHairColor();
+    }
+    private Color RandomHairColor()
+    {
+        return hairColors[Random.Range(0, hairColors.Length)];
+    }
+    private Color RandomColor()
+    {
+        return new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+    }
     private void Update()
     {
         if (currentHappiness > 0)

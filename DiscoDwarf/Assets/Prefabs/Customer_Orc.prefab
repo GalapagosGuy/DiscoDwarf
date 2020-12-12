@@ -77,6 +77,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d96060c3660ab44b38774007a1b6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hairColors:
+  - {r: 0.7529412, g: 0.7137255, b: 0.36078432, a: 1}
+  - {r: 0.18867922, g: 0.070099525, b: 0.04343182, a: 1}
+  - {r: 0.6981132, g: 0.23436601, b: 0, a: 1}
+  - {r: 0.33962262, g: 0.19248985, b: 0.123033084, a: 1}
+  bodyParts:
+    arm: {fileID: 8828219783183918313}
+    skin: {fileID: 8828219783021804204}
+    chest: {fileID: 8828219783030457145}
+    bottom: {fileID: 8828219782148103915}
+    hair: {fileID: 8828219782599858962}
   emotionImage: {fileID: 7019864635945229127}
   emotionSprites:
   - {fileID: 7228512672991230164, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}

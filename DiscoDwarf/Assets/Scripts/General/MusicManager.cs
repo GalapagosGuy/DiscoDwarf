@@ -79,7 +79,7 @@ public class MusicManager : MonoBehaviour
     private bool beatStarted = false;
     private bool beatFinished = false;
 
-    private void Update()
+    private void LateUpdate()
     {
         songTime += Time.time - previousFrameTime;
         previousFrameTime = Time.time;

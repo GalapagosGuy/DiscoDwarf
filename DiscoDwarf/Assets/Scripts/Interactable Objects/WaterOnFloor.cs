@@ -8,7 +8,7 @@ public class WaterOnFloor : MonoBehaviour
     {
         Debug.Log(other.gameObject);
 
-        if (other.GetComponentInChildren<ItemSlot>().Item.GetComponent<Broom>())
+        if (other.GetComponentInChildren<ItemSlot>() && other.GetComponentInChildren<ItemSlot>().Item != null && other.GetComponentInChildren<ItemSlot>().Item.GetComponent<Broom>())
         {
             Destroy(this.gameObject);
         }

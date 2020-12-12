@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour, IMusicListener
         if (!MusicManager.Instance.CanDoAction || !canChangeDirection)
             return;
 
+        ComboCounter.Instance?.InputPressed();
+
         switch (movementDirection)
         {
             case MovementDirection.Forward:

@@ -7,4 +7,6 @@ public abstract class Item : MonoBehaviour
     [SerializeField]
     private ITEMTYPE type;
 
+    public ITEMTYPE GetItemType() { return type; }
+
 }

@@ -13849,14 +13849,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 8406788154620903048, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406788154620903048, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
-      propertyPath: m_Color.r
-      value: 0.972549
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
 --- !u!1001 &1836034568
@@ -16413,85 +16405,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3128876831111498930, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_Name
-      value: DancedPoints Label
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 413108787}
-    - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayAgain
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HUDManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831194717659, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831659612904, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_Color.a
-      value: 0.9490196
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876831875033053, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_Name
-      value: End game points
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833266, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_Name
-      value: Result text
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833267, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 629.744
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833267, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000022888
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833267, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 173
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833420, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_fontSize
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833420, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_wordSpacing
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833420, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876832365833420, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_characterSpacing
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 3128876833175664314, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
       propertyPath: m_Name
       value: End Game Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128876833175664314, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3128876833175664315, guid: fe7981942f27c2d49aa3717f7b0f58b4, type: 3}
       propertyPath: m_RootOrder

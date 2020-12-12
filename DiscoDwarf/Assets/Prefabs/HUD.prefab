@@ -621,6 +621,9 @@ MonoBehaviour:
   drinkPrefab: {fileID: 8948292786926005778, guid: 4a1a6c187ec00894eb43d26a36542d24, type: 3}
   pointsText: {fileID: 1542508769438743716}
   pointsMultiplierObject: {fileID: 2065971513629371472}
+  EndGameCanvas: {fileID: 0}
+  endGameResult: {fileID: 0}
+  endGamePoints: {fileID: 0}
 --- !u!1 &3040309276542206611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.27116203, a: 1}
+  m_Color: {r: 0.972549, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -85,7 +85,7 @@ public class HUDManager : MonoBehaviour
             EndGame("You funked up");
     }
 
-    private void EndGame(string result)
+    public void EndGame(string result)
     {
         EndGameCanvas.SetActive(true);
         endGameResult.text = result;
@@ -104,6 +104,7 @@ public class HUDManager : MonoBehaviour
 
     public void CalculatePointsMultiplier()
     {
+        pointsMultiplier = 1f;
         bool turnOn = false;
         if (comboCounter.Combo >= 10)
         {

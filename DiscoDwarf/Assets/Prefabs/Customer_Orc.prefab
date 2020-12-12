@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &585448437455120309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4615202883697101503}
+  m_Layer: 0
+  m_Name: distancePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4615202883697101503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585448437455120309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.35, z: -1.371}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2685735055777595680}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2685735055777595868
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +61,7 @@ Transform:
   m_Children:
   - {fileID: 2477893232148322977}
   - {fileID: 7683686133136435355}
+  - {fileID: 4615202883697101503}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +139,7 @@ GameObject:
   - component: {fileID: 8986269235981039330}
   - component: {fileID: 4395983323517971499}
   - component: {fileID: 7282981713084546977}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drink Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +214,7 @@ GameObject:
   - component: {fileID: 1769800691513632540}
   - component: {fileID: 4211237376812553243}
   - component: {fileID: 7019864635945229127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Emotion Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +289,7 @@ GameObject:
   - component: {fileID: 5734665992200744461}
   - component: {fileID: 4186530837268084660}
   - component: {fileID: 7377072527697406375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drink Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +364,7 @@ GameObject:
   - component: {fileID: 1167010082788512420}
   - component: {fileID: 5477246859158636990}
   - component: {fileID: 3143486460160582178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drink Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +443,7 @@ GameObject:
   - component: {fileID: 2116077797408659275}
   - component: {fileID: 3025098541013824389}
   - component: {fileID: 838547416379441074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +490,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &2116077797408659275
 MonoBehaviour:
@@ -523,6 +554,9 @@ GameObject:
   - component: {fileID: 8828219781331083866}
   - component: {fileID: 8828219781331083867}
   - component: {fileID: 8828219781331083868}
+  - component: {fileID: 1276538560226683087}
+  - component: {fileID: 8759198330633480197}
+  - component: {fileID: 2922312961695301664}
   m_Layer: 0
   m_Name: orc
   m_TagString: Untagged
@@ -588,7 +622,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 347346404034932636, guid: 428721af6a1f5ab4f8dabe0a9a09469b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -619,6 +653,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1276538560226683087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828219781331083869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278530b83c9f7954aad4f65886a1929a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancePoint: {fileID: 585448437455120309}
+  layerStep: 10
+--- !u!54 &8759198330633480197
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828219781331083869}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &2922312961695301664
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828219781331083869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0.533031, y: 1.28, z: 0.00000028593968}
 --- !u!1 &8828219782148103915
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +767,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.25081882, g: 0.26131302, b: 0.31132078, a: 1}
   m_FlipX: 0
@@ -792,7 +869,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.754717, g: 0.71219766, b: 0.35884655, a: 1}
   m_FlipX: 0
@@ -894,7 +971,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.39846918, g: 0.735849, b: 0.4546992, a: 1}
   m_FlipX: 0
@@ -996,7 +1073,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.13905303, g: 0.33962262, b: 0.17002769, a: 1}
   m_FlipX: 0
@@ -1098,7 +1175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.6320754, g: 0.6232472, b: 0.539053, a: 1}
   m_FlipX: 0

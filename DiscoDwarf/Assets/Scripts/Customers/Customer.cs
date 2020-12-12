@@ -49,9 +49,11 @@ public class Customer : InteractableObject
         {
             if (playersItemSlot.Item.GetComponent<Tray>())
             {
-                if(playersItemSlot.Item.GetComponent<Tray>().SearchForDesireDrink(desiredDrink))
+                if (playersItemSlot.Item.GetComponent<Tray>().SearchForDesireDrink(desiredDrink))
                 {
                     AddHappiness(happinessBonus);
+                    SpriteLayerChanger.Instance.RemoveReference(this.GetComponentInChildren<SpritesContainer>());
+
                     GoHome();
                     Debug.Log($"Customer got desired drink - {desiredDrink}");
                 }
@@ -74,7 +76,7 @@ public class Customer : InteractableObject
 
     private void Update()
     {
-        if(currentHappiness > 0)
+        if (currentHappiness > 0)
         {
             currentHappiness -= Time.deltaTime * happinessMultiplier;
         }

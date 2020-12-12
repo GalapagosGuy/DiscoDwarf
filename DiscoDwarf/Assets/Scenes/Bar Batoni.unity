@@ -2213,6 +2213,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
+--- !u!1 &1859486191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9084575318643825474, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
+  m_PrefabInstance: {fileID: 9084575319441239829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1859486196
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859486191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aabd71be839b16d4cbe94397041e3ecd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1993533468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,6 +2465,26 @@ PrefabInstance:
     - target: {fileID: 9084575317829877365, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
       propertyPath: m_Name
       value: Music Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084575318643825485, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084575318643825485, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084575318643825485, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084575318643825485, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -470.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084575318643825485, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 373.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd53aba18d4749c49b321b4ece71d095, type: 3}

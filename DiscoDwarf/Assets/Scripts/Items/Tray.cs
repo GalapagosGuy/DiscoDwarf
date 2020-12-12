@@ -64,7 +64,7 @@ public class Tray : Item
         drink.transform.localScale = Vector3.one;
         drinks[place] = drink;
         drinkNumber++;
-        HUDManager.AddDrinkToHud(place, colors[(int)drink.GetComponent<Drink>().DrinkType]);
+        //HUDManager.AddDrinkToHud(place, colors[(int)drink.GetComponent<Drink>().DrinkType]);
         Debug.Log($"Added {drink.GetComponent<Drink>().DrinkType} to {place} place on tray");
     }
 
@@ -73,7 +73,7 @@ public class Tray : Item
         Debug.Log($"Removed {drink.GetComponent<Drink>().DrinkType} from {place} place on tray");
         drinks[place] = null;
         drinkPlace[place] = false;
-        HUDManager.RemoveDrinkFromHud(place);
+        //HUDManager.RemoveDrinkFromHud(place);
         drinkNumber--;
     }
 

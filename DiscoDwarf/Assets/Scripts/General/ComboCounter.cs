@@ -50,6 +50,7 @@ public class ComboCounter : IMusicListener
         if (!anyInputProcessed && counter)
         {
             combo++;
+            GetComponent<Animator>().SetTrigger("Bump");
             counter.text = combo + "";
         }
 

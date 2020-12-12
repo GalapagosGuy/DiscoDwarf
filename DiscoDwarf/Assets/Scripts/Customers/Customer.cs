@@ -51,7 +51,7 @@ public class Customer : InteractableObject
     private Color[] colors = new Color[]
     {
         Color.red,
-        Color.green,
+        Color.yellow,
         Color.cyan
     };
 

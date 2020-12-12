@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tray : Item
 {
-    private List<GameObject> drinks;
+    private GameObject[] drinks;
 
     [SerializeField]
     private int maxSize;
@@ -13,16 +13,25 @@ public class Tray : Item
     [SerializeField]
     private GameObject[] drinkTransforms;
 
+    private bool[] drinkPlace;
+
     public int MaxSize { get => maxSize; }
+    private int drinkNumber;
 
     private void Awake()
     {
-        drinks = new List<GameObject>();
+        drinkNumber = 0;
+        drinks = new GameObject[maxSize];
+        drinkPlace = new bool[drinkTransforms.Length];
+        for (int i = 0; i < drinkPlace.Length; i++)
+        {
+            drinkPlace[i] = false;
+        }
     }
 
     public bool HasFreeSpace()
     {
-        if (drinks.Count + 1 <= maxSize)
+        if (drinkNumber + 1 <= maxSize)
             return true;
         else
             return false;
@@ -30,12 +39,14 @@ public class Tray : Item
 
     public bool SearchForDesireDrink(Drink.DRINKTYPE desiredDrink)
     {
-        for(int i = 0; i < drinks.Count; i++)
+        for(int i = 0; i < maxSize; i++)
         {
-            if (drinks[i].GetComponent<Drink>().DrinkType == desiredDrink)
+            if (drinks[i] && drinks[i].GetComponent<Drink>().DrinkType == desiredDrink)
             {
-                Destroy(drinks[i]);
-                drinks.Remove(drinks[i]);
+                GameObject currentDrink = drinks[i];
+                RemoveDrink(drinks[i], i);
+               
+                Destroy(currentDrink);
                 return true;
             }     
         }
@@ -44,26 +55,50 @@ public class Tray : Item
 
     public void AddDrink(GameObject drink)
     {
-        Debug.Log($"Added {drink.GetComponent<Drink>().DrinkType} to tray");
-        drinks.Add(drink);
-        drink.transform.SetParent(this.transform);
-        drink.transform.position = drinkTransforms[drinks.Count - 1].transform.position;
+        int place = FreeSpaceOnTray();
+        drink.transform.SetParent(drinkTransforms[place].transform);
+        drink.transform.localPosition = Vector3.zero;
+        drink.transform.localRotation = Quaternion.identity;
+        drink.transform.localScale = Vector3.one;
+        drinks[place] = drink;
+        drinkNumber++;
+        Debug.Log($"Added {drink.GetComponent<Drink>().DrinkType} to {place} place on tray");
     }
 
-    public void RemoveDrink(GameObject drink)
+    public void RemoveDrink(GameObject drink, int place)
     {
-        Debug.Log($"Removed {drink.GetComponent<Drink>().DrinkType} from tray");
-        drinks.Remove(drink);
+        Debug.Log($"Removed {drink.GetComponent<Drink>().DrinkType} from {place} place on tray");
+        drinks[place] = null;
+        drinkPlace[place] = false;
+        drinkNumber--;
     }
 
+    private int FreeSpaceOnTray()
+    {
+        for(int i = 0; i < drinkPlace.Length; i++)
+        {
+            if (!drinkPlace[i])
+            {
+                drinkPlace[i] = true;
+                return i;
+            }
+                
+        }
+        return 0;
+    }
     public void RemoveAllDrinks()
     {
-        for (int i = 0; i < drinks.Count; i++)
+        for (int i = 0; i < maxSize; i++)
         {
-            Destroy(drinks[i]);
-
+            if(drinks[i])
+            {
+                Destroy(drinks[i]);
+                drinks[i] = null;  
+            }
+            drinkPlace[i] = false;
         }
-        drinks.Clear();
+        drinkNumber = 0;
+        
         Debug.Log("Removed all drinks from tray");
 
     }

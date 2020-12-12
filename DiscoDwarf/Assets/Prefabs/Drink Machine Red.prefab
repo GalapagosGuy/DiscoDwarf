@@ -108,4 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59787523256706f4283c7d7524e5f299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  servedDrink: {fileID: 8731362714578154683, guid: 035f02d5c8df44141b902ffbc0930a57, type: 3}
+  servedDrink: {fileID: 7024503263192304802, guid: 51519ceeb89d7064d814e56d1ace6c17, type: 3}

@@ -15,7 +15,7 @@ public class Detector : MonoBehaviour
     {
         if (other.GetComponent<InteractableObject>())
         {
-            Debug.Log($"{other.name} is now in range to use");
+            //Debug.Log($"{other.name} is now in range to use");
             playerController.SetInteractableObject(other.GetComponent<InteractableObject>());
         }
     }

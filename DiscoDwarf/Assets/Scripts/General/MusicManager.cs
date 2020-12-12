@@ -125,7 +125,7 @@ public class MusicManager : MonoBehaviour
     {
         if (songTime >= nextBeatCheckpoint)
         {
-            Debug.Log("Beat!");
+            //Debug.Log("Beat!");
             previousBeatCheckpoint = nextBeatCheckpoint;
             nextBeatCheckpoint += timeBetweenBeats;
 

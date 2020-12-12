@@ -29,13 +29,5 @@ public class PlayerController : MonoBehaviour
         {
             playerMovement?.Move(MovementDirection.Right);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (MusicManager.Instance.CanDoAction)
-                Debug.Log("Good!");
-            else
-                Debug.Log("Meh!");
-        }
     }
 }

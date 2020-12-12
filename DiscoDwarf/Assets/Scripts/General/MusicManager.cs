@@ -95,9 +95,15 @@ public class MusicManager : MonoBehaviour
         else
             canDoAction = false;
 
-        //beatHitMarker?.SetActive(canDoAction);
 
-        //check beat start
+        CheckBeatStart();
+        CheckBeatFinish();
+        CheckBeatCore();
+    }
+
+    //check beat start
+    private void CheckBeatStart()
+    {
         if (songTime >= nextBeatCheckpoint - beforeBeatAcceptableInput && songTime <= nextBeatCheckpoint)
         {
             if (!beatStarted)
@@ -108,8 +114,11 @@ public class MusicManager : MonoBehaviour
         }
         else
             beatStarted = false;
+    }
 
-        //check beat finished
+    //check beat finish
+    private void CheckBeatFinish()
+    {
         if (songTime <= previousBeatCheckpoint + afterBeatAcceptableInput && songTime >= previousBeatCheckpoint)
         {
             beatFinished = true;
@@ -122,11 +131,13 @@ public class MusicManager : MonoBehaviour
 
             beatFinished = false;
         }
+    }
 
-
+    private void CheckBeatCore()
+    {
         if (songTime >= nextBeatCheckpoint)
         {
-            Debug.Log("pop");
+            Debug.Log("Beat!");
             previousBeatCheckpoint = nextBeatCheckpoint;
             nextBeatCheckpoint += timeBetweenBeats;
 
@@ -134,23 +145,4 @@ public class MusicManager : MonoBehaviour
                 musicListener.OnBeatCenter();
         }
     }
-
-    /*private float currentTimeToBeat = 0.0f;
-    private float lastAudioFrame = 0.0f;
-    private float deltaAudioFrame = 0.0f;
-
-    private void Update()
-    {
-        deltaAudioFrame = musicAudioSource.time - lastAudioFrame;
-        lastAudioFrame = musicAudioSource.time;
-
-        currentTimeToBeat += deltaAudioFrame;
-
-        if (currentTimeToBeat >= timeBetweenBeats)
-        {
-            Debug.Log("pop");
-
-            currentTimeToBeat -= timeBetweenBeats;
-        }
-    }*/
 }

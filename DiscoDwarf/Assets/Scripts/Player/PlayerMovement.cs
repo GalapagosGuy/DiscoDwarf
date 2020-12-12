@@ -94,16 +94,4 @@ public enum MovementDirection
     Right
 }
 
-/*
- *             Vector3 direction = (target.transform.position - transform.position).normalized;
-
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-
-            float angle = Quaternion.Angle(transform.rotation, lookRotation);
-            float timeToComplete = angle / rotationSpeed;
-            float donePercentage = Mathf.Min(1.0f, Time.deltaTime / timeToComplete);
-
-            this.transform.rotation = Quaternion.Euler(0.0f, Quaternion.Slerp(transform.rotation, lookRotation, donePercentage).eulerAngles.y, 0.0f);
-            */
-
 

@@ -50,11 +50,11 @@ public class PlayerMovement : MonoBehaviour, IMusicListener
                 break;
             case MovementDirection.Left:
                 movementDirectionVector = Vector3.left;
-                playerAnimator.gameObject.transform.localRotation = Quaternion.Euler(45.0f, 0, playerAnimator.gameObject.transform.localRotation.eulerAngles.z);
+                //playerAnimator.gameObject.transform.localRotation = Quaternion.Euler(45.0f, 0, playerAnimator.gameObject.transform.localRotation.eulerAngles.z);
                 break;
             case MovementDirection.Right:
                 movementDirectionVector = Vector3.right;
-                playerAnimator.gameObject.transform.localRotation = Quaternion.Euler(-45.0f, 180, playerAnimator.gameObject.transform.localRotation.eulerAngles.z);
+                //playerAnimator.gameObject.transform.localRotation = Quaternion.Euler(-45.0f, 180, playerAnimator.gameObject.transform.localRotation.eulerAngles.z);
                 break;
         }
 

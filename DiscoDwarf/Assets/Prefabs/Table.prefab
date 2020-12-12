@@ -234,7 +234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1377468789945100276, guid: fdc888ea32d7e5c42a33b288ad9f5724, type: 3}
       propertyPath: chancesToSpawn
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1377468789945100276, guid: fdc888ea32d7e5c42a33b288ad9f5724, type: 3}
       propertyPath: timeBetweenSpawns

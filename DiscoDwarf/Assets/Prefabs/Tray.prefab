@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  maxSize: 1
+  maxSize: 3
   drinkTransforms:
   - {fileID: 6178358244226513273}
   - {fileID: 8512137942760169608}

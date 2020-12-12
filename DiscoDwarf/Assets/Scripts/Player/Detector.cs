@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-    private PlayerMove playerMove;
+    private PlayerController playerController;
 
     private void Awake()
     {
-        playerMove = GetComponentInParent<PlayerMove>();
+        playerController = GetComponentInParent<PlayerController>();
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<InteractableObject>())
         {
-            //Debug.Log($"{other.name} is now in range to use");
-            playerMove.SetInteractableObject(other.GetComponent<InteractableObject>());
+            Debug.Log($"{other.name} is now in range to use");
+            playerController.SetInteractableObject(other.GetComponent<InteractableObject>());
         }
     }
 
@@ -24,7 +24,7 @@ public class Detector : MonoBehaviour
     {
         if (other.GetComponent<InteractableObject>())
         {
-            playerMove.SetInteractableObject(null);
+            playerController.SetInteractableObject(null);
         }
     }
 }

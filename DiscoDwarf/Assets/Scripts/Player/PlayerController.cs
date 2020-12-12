@@ -38,7 +38,8 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.J))
         {
-
+            if (interactableObject)
+                interactableObject.Use(itemSlot);
         }
 
     }

@@ -7,10 +7,12 @@ public class PlayerController : IMusicListener
     public PlayerMovement playerMovement;
     private InteractableObject interactableObject;
     private ItemSlot itemSlot;
+    private RoboHand roboHand;
 
     private void Awake()
     {
         itemSlot = GetComponent<ItemSlot>();
+        roboHand = GetComponent<RoboHand>();
     }
 
     private void Update()
@@ -18,7 +20,7 @@ public class PlayerController : IMusicListener
         ProcessMovement();
     }
 
-    private bool canInteractWithObject = false;
+    private bool canDoLocalAction = false;
 
     private void ProcessMovement()
     {
@@ -43,7 +45,7 @@ public class PlayerController : IMusicListener
             if (!MusicManager.Instance.CanDoAction)
                 ComboCounter.Instance.BreakCombo();
 
-            if (!MusicManager.Instance.CanDoAction || !canInteractWithObject)
+            if (!MusicManager.Instance.CanDoAction || !canDoLocalAction)
                 return;
 
             ComboCounter.Instance?.InputPressed();
@@ -51,7 +53,22 @@ public class PlayerController : IMusicListener
             if (interactableObject)
                 interactableObject.Use(itemSlot);
 
-            canInteractWithObject = false;
+            canDoLocalAction = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (!MusicManager.Instance.CanDoAction)
+                ComboCounter.Instance.BreakCombo();
+
+            if (!MusicManager.Instance.CanDoAction || !canDoLocalAction)
+                return;
+
+            ComboCounter.Instance?.InputPressed();
+
+            if (roboHand)
+                roboHand.SwapHand();
+
+            canDoLocalAction = false;
         }
 
     }
@@ -62,7 +79,7 @@ public class PlayerController : IMusicListener
 
     public override void OnBeatStart()
     {
-        canInteractWithObject = true;
+        canDoLocalAction = true;
     }
 
     public override void OnBeatCenter()
@@ -72,6 +89,6 @@ public class PlayerController : IMusicListener
 
     public override void OnBeatFinished()
     {
-        canInteractWithObject = false;
+        canDoLocalAction = false;
     }
 }

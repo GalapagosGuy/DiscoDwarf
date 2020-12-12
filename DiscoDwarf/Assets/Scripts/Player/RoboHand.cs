@@ -4,20 +4,46 @@ using UnityEngine;
 
 public class RoboHand : MonoBehaviour
 {
-    public HandSprite[] hands;
+    public ItemSlot itemSlot;
+    public Hand[] hands;
+
+    private int currentIndex = 0;
+
+    public void SwapHand()
+    {
+        GameObject currentObject = hands[currentIndex].handObject;
+
+        if (currentIndex + 1 >= hands.Length)
+            currentIndex = 0;
+        else
+            currentIndex++;
+
+        if (currentObject.GetComponent<Tray>())
+            itemSlot?.HideTray();
+        else
+            itemSlot?.RemoveItemFromSlot();
+
+        if (hands[currentIndex].handObject.GetComponent<Tray>())
+            itemSlot?.ShowTray();
+        else
+            itemSlot.AddItemToSlot(Instantiate(hands[currentIndex].handObject));
+
+        ChangeHand(hands[currentIndex].type);
+    }
 
     public void ChangeHand(ITEMTYPE itemType)
     {
-        foreach (HandSprite hs in hands)
+        foreach (Hand hs in hands)
         {
-            hs.objectWithHand.SetActive(itemType == hs.type);
+            hs.objectWithHandSprite.SetActive(itemType == hs.type);
         }
     }
 }
 
 [System.Serializable]
-public struct HandSprite
+public struct Hand
 {
     public ITEMTYPE type;
-    public GameObject objectWithHand;
+    public GameObject objectWithHandSprite;
+    public GameObject handObject;
 }

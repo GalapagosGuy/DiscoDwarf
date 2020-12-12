@@ -931,8 +931,8 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 2.5
-  m_SlopeLimit: 45
+  m_Radius: 1.5
+  m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -951,7 +951,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &6268121700518945245
 MonoBehaviour:
@@ -965,11 +965,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb3fa413de0aaa489c32b32377c2c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSlot: {fileID: 5850701257318900207}
   hands:
   - type: 0
-    objectWithHand: {fileID: 6752954873338602201}
+    objectWithHandSprite: {fileID: 6752954873338602201}
+    handObject: {fileID: 7510865091593249565}
   - type: 1
-    objectWithHand: {fileID: 5587065603667730073}
+    objectWithHandSprite: {fileID: 5587065603667730073}
+    handObject: {fileID: 3969057081026134552, guid: 88fc458b5dd75824bb04a39b02fee766, type: 3}
 --- !u!1 &9103953677081069061
 GameObject:
   m_ObjectHideFlags: 0

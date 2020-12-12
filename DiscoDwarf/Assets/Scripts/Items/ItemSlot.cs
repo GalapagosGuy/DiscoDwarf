@@ -5,8 +5,6 @@ using UnityEngine;
 public class ItemSlot : MonoBehaviour
 {
     public GameObject tray = null;
-    [HideInInspector]
-    public RoboHand roboHand = null;
 
     [SerializeField]
     private GameObject item = null;
@@ -16,9 +14,9 @@ public class ItemSlot : MonoBehaviour
 
     public GameObject Item { get => item; set => item = value; }
 
-    private void Awake()
+    private void Start()
     {
-        roboHand = GetComponent<RoboHand>();
+        ShowTray();
     }
 
     public void AddItemToSlot(GameObject item)
@@ -29,8 +27,6 @@ public class ItemSlot : MonoBehaviour
             item.transform.position = itemSlot.transform.position;
             item.transform.rotation = itemSlot.transform.rotation;
             item.transform.parent = itemSlot.transform;
-
-            roboHand?.ChangeHand(item.GetComponent<Item>().GetItemType());
         }
         else
             Debug.Log($"Player's slot is not empty - occupied by {item.name}");

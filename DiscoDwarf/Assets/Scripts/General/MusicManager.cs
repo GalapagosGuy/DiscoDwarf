@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance = null;
     public PlayerMovement movement;
+    public GameObject beatHitMarker = null;
 
     [SerializeField]
     private float beatTempo = 120.0f;
@@ -75,6 +76,8 @@ public class MusicManager : MonoBehaviour
             canDoAction = true;
         else
             canDoAction = false;
+
+        beatHitMarker?.SetActive(canDoAction);
 
         if (songTime >= nextBeatCheckpoint)
         {

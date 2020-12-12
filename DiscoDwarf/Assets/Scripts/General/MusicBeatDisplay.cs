@@ -27,6 +27,10 @@ public class MusicBeatDisplay : MonoBehaviour, IMusicListener
 
             mainBeatImage.color = color;
         }*/
+
+        Color color = mainBeatImage.color;
+        color.a -= Time.deltaTime * speed;
+        mainBeatImage.color = color;
     }
 
     public void OnBeatCenter()
@@ -34,19 +38,23 @@ public class MusicBeatDisplay : MonoBehaviour, IMusicListener
         //increaseAlpha = false;
         //decreaseAlpha = true;
         smallInfoImage.color = Color.green;
+
+        Color color = mainBeatImage.color;
+        color.a = 1.0f;
+        mainBeatImage.color = color;
     }
 
     public void OnBeatFinished()
     {
         //decreaseAlpha = false;
-        mainBeatImage.gameObject.SetActive(false);
+        //mainBeatImage.gameObject.SetActive(false);
 
         smallInfoImage.color = Color.black;
     }
 
     public void OnBeatStart()
     {
-        mainBeatImage.gameObject.SetActive(true);
+        //mainBeatImage.gameObject.SetActive(true);
         //increaseAlpha = true;
         smallInfoImage.color = Color.green;
     }

@@ -23,7 +23,7 @@ public class BroomHolder : InteractableObject
                 playersItemSlot.HideTray();
             }
 
-            playersItemSlot.AddItemToSlot(broomToTake);
+            playersItemSlot.AddItemToSlot(Instantiate(broomToTake));
         }
         //if player has broom take it from him
         else

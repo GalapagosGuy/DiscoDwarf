@@ -7,6 +7,7 @@ public class Customer : InteractableObject
 {
     private Drink.DRINKTYPE desiredDrink;
     private Image drinkImage;
+    private float happinessBonus = 10f;
 
     private Color[] colors = new Color[]
     {
@@ -23,6 +24,7 @@ public class Customer : InteractableObject
             {
                 if(playersItemSlot.Item.GetComponent<Tray>().SearchForDesireDrink(desiredDrink))
                 {
+                    AddHappiness(happinessBonus);
                     GoHome();
                     Debug.Log("Customer got desired drunk");
                 }
@@ -47,6 +49,10 @@ public class Customer : InteractableObject
         drinkImage.color = colors[(int)desiredDrink];
     }
 
+    private void AddHappiness(float value)
+    {
+        FindObjectOfType<HUDManager>().AddToHappyMeter(value);
+    }
     private void GoHome()
     {
         Destroy(this.gameObject);

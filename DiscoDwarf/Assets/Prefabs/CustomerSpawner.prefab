@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerPrefab: {fileID: 2685735055777595868, guid: f447fa8c4d4029643a5e6b7ab62f3a2c, type: 3}
-  spawnTime: 7
+  spawnTime: 15

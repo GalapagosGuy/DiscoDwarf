@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterToSpawn: {fileID: 3401520502393287818, guid: 2839dc295be80bb48a1bfd8f24954483, type: 3}
-  timeBetweenSpawns: 3
-  chancesToSpawn: 20
+  timeBetweenSpawns: 5
+  chancesToSpawn: 10

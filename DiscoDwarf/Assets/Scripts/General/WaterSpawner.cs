@@ -33,7 +33,7 @@ public class WaterSpawner : MonoBehaviour
                 if (waterToSpawn)
                 {
                     GameObject spawnedWater = Instantiate(waterToSpawn);
-
+                    spawnedWater.transform.SetParent(this.transform);
                     float x = Random.Range(-1.0f, 1.0f);
                     float z = Random.Range(-1.0f, 1.0f);
 

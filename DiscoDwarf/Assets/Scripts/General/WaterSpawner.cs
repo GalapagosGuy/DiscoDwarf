@@ -40,6 +40,7 @@ public class WaterSpawner : MonoBehaviour
                     Vector3 position = this.transform.position + (new Vector3(x, 0.0f, z).normalized * radius);
 
                     spawnedWater.transform.position = position;
+                    spawnedWater.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
                 }
             }
         }

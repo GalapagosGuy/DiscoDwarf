@@ -62,7 +62,7 @@ public class PlayerMovement : IMusicListener
 
         currentMovementSpeed = movementSpeed;
 
-        playerAnimator?.SetTrigger("rideTrigger");
+        //playerAnimator?.SetTrigger("rideTrigger");
     }
 
     private void Update()

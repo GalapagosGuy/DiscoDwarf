@@ -30,6 +30,8 @@ public class ComboCounter : IMusicListener
     private bool anyInputProcessed = false;
     private int combo = 0;
 
+    public int Combo { get => combo; }
+
     public override void OnBeatCenter()
     {
 

@@ -40,6 +40,7 @@ public class Customer : InteractableObject
     private Drink.DRINKTYPE desiredDrink;
     private EMOTION emotion;
     private float happinessBonus = 10f;
+    private int pointBonus = 15;
 
     private float currentHappiness;
     private float maxHappiness = 100f;
@@ -72,6 +73,7 @@ public class Customer : InteractableObject
                     AddHappiness(happinessBonus);
                     SpriteLayerChanger.Instance.RemoveReference(this.GetComponentInChildren<SpritesContainer>());
                     hudManager.RemoveDesiredDrink(desiredDrink);
+                    hudManager.AddPoints(pointBonus);
                     GoHome();
                     Debug.Log($"Customer got desired drink - {desiredDrink}");
                 }

@@ -7,6 +7,9 @@ public class WaterOnFloor : MonoBehaviour
     private HUDManager hudManager;
     [SerializeField]
     private float substractValue = 0.2f;
+
+    private int pointBonus = 5;
+
     private void Awake()
     {
         hudManager = FindObjectOfType<HUDManager>();
@@ -19,6 +22,7 @@ public class WaterOnFloor : MonoBehaviour
     {
         if (other.GetComponentInChildren<ItemSlot>() && other.GetComponentInChildren<ItemSlot>().Item != null && other.GetComponentInChildren<ItemSlot>().Item.GetComponent<Broom>())
         {
+            hudManager.AddPoints(pointBonus);
             Destroy(this.gameObject);
         }
     }

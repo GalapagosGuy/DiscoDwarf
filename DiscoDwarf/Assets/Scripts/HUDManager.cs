@@ -6,16 +6,17 @@ using TMPro;
 
 public class HUDManager : MonoBehaviour
 {
+    [Header("Happiness meter parameters")]
     [SerializeField]
     private Image happyMeterImage;
     [SerializeField]
     private Image happyMeterEmotion;
     [SerializeField]
     private Sprite[] emotions;
-
     [SerializeField]
     private float happinessMultiplier;
 
+    [Header("Drinks parameters")]
     [SerializeField]
     private GameObject[] desiredDrinksHolder;
 
@@ -23,9 +24,19 @@ public class HUDManager : MonoBehaviour
     private GameObject drinksHolder;
 
     private GameObject[] currentDrinks;
-
     [SerializeField]
     private GameObject drinkPrefab;
+
+    [Header("Points")]
+    [SerializeField]
+    private TextMeshProUGUI pointsText;
+
+    [SerializeField]
+    private GameObject pointsMultiplierObject;
+
+    private int points;
+    private float pointsMultiplier;
+    private ComboCounter comboCounter;
 
     private float happyMeter;
     private float maxHappyMeter = 100f;
@@ -40,6 +51,9 @@ public class HUDManager : MonoBehaviour
 
     private void Start()
     {
+        comboCounter = FindObjectOfType<ComboCounter>();
+        points = 0;
+        AddPoints(0);
         happyMeter = maxHappyMeter;
         currentDrinks = new GameObject[3];
     }
@@ -47,6 +61,7 @@ public class HUDManager : MonoBehaviour
     private void Update()
     {
         UpdateHappyMeter();
+        CalculatePointsMultiplier();
     }
 
     private void UpdateHappyMeter()
@@ -61,7 +76,40 @@ public class HUDManager : MonoBehaviour
 
         happyMeterImage.color = Color.Lerp(Color.red, Color.green, happyMeter/maxHappyMeter);
     }
+    public void AddPoints(int value)
+    {
+       
+        points += (int)(value * pointsMultiplier);
+        pointsText.text = points.ToString();
+    }
 
+    public void CalculatePointsMultiplier()
+    {
+        bool turnOn = false;
+        if (comboCounter.Combo >= 10)
+        {
+            turnOn = true;
+            pointsMultiplier = 1.1f;
+        }
+        if (comboCounter.Combo >= 25)
+            pointsMultiplier = 1.25f;
+        if (comboCounter.Combo >= 50)
+            pointsMultiplier = 1.35f;
+        if (comboCounter.Combo >= 100)
+            pointsMultiplier = 1.5f;
+        if (comboCounter.Combo >= 200)
+            pointsMultiplier = 2f;
+
+        if (turnOn)
+        {
+            pointsMultiplierObject.SetActive(true);
+            pointsMultiplierObject.GetComponent<TextMeshProUGUI>().text = "x" + pointsMultiplier;
+        }
+        else
+        {
+            pointsMultiplierObject.SetActive(false);
+        }
+    }
     public void AddDesiredDrink(Drink.DRINKTYPE drinkType)
     {
         desiredDrinks[(int)drinkType] += 1;

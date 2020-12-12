@@ -265,7 +265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happyMeterImage: {fileID: 2564991667311685401}
-  happinessMultiplier: 2
+  happinessMultiplier: 1
+  drinksHolder: {fileID: 6302200382856841731}
+  drinkPrefab: {fileID: 8948292786926005778, guid: 4a1a6c187ec00894eb43d26a36542d24, type: 3}
 --- !u!1 &6302200382856841731
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +321,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 5
+  m_ChildAlignment: 3
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0

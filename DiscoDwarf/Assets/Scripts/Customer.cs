@@ -28,7 +28,8 @@ public class Customer : InteractableObject
                     GoHome();
                     Debug.Log("Customer got desired drunk");
                 }
-                Debug.Log("No desired drink on tray");
+                else
+                    Debug.Log("No desired drink on tray");
             }
             else
                 Debug.Log("No tray in hands");

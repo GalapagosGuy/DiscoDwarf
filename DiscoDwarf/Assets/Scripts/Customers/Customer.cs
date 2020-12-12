@@ -6,14 +6,28 @@ using UnityEngine.UI;
 public class Customer : InteractableObject
 {
     [SerializeField]
-    private float happinessMultiplier = 2f;
+    private Image emotionImage;
+
+    [SerializeField]
+    private Sprite[] emotionSprites;
+
+    [SerializeField]
+    private Image desiredDrinkImage;
+
+    private float happinessMultiplier = 1f;
+
+    [SerializeField]
+    private float maxWaitingTime;
 
     private Drink.DRINKTYPE desiredDrink;
-    private Image drinkImage;
+    private EMOTION emotion;
     private float happinessBonus = 10f;
 
     private float currentHappiness;
-    private float maxHappiness;
+    private float maxHappiness = 100f;
+    private float happinessSubstract;
+
+    private HUDManager hudManager;
 
     private Color[] colors = new Color[]
     {
@@ -21,6 +35,13 @@ public class Customer : InteractableObject
         Color.green,
         Color.cyan
     };
+
+    private enum EMOTION
+    {
+        Happy,
+        Irritated,
+        Angry
+    }
 
     public override void Use(ItemSlot playersItemSlot)
     {
@@ -46,7 +67,8 @@ public class Customer : InteractableObject
 
     private void Awake()
     {
-        drinkImage = GetComponentInChildren<Image>();
+        hudManager = FindObjectOfType<HUDManager>();
+        currentHappiness = maxHappiness;
         DesireRandomDrink();
     }
 
@@ -56,11 +78,40 @@ public class Customer : InteractableObject
         {
             currentHappiness -= Time.deltaTime * happinessMultiplier;
         }
+        ChangeEmotion();
+        UpdateHudManager();
+    }
+
+    private void UpdateHudManager()
+    {
+        hudManager.SubstractFromHappyMeter(happinessSubstract * Time.deltaTime);
+    }
+
+    private void ChangeEmotion()
+    {
+        if (currentHappiness > 66)
+        {
+            emotion = EMOTION.Happy;
+            happinessSubstract = 0f;
+        }
+        else if (currentHappiness > 33 && currentHappiness <= 66)
+        {
+            emotion = EMOTION.Irritated;
+            happinessSubstract = 1f;
+
+        }
+        else if (currentHappiness < 33)
+        {
+            emotion = EMOTION.Angry;
+            happinessSubstract = 2f;
+        }
+
+        emotionImage.sprite = emotionSprites[(int)emotion];
     }
     private void DesireRandomDrink()
     {
         desiredDrink = (Drink.DRINKTYPE)Random.Range(0, 3);
-        drinkImage.color = colors[(int)desiredDrink];
+        desiredDrinkImage.color = colors[(int)desiredDrink];
     }
 
     private void AddHappiness(float value)

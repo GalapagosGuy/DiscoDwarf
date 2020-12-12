@@ -26,11 +26,6 @@ public class HUDManager : MonoBehaviour
 
     private void UpdateHappyMeter()
     {
-        if(happyMeter > 0)
-        {
-            happyMeter -= Time.deltaTime * happinessMultiplier;
-        }
-
         happyMeterImage.fillAmount = happyMeter / maxHappyMeter;
         happyMeterImage.color = Color.Lerp(Color.red, Color.green, happyMeter/maxHappyMeter);
     }

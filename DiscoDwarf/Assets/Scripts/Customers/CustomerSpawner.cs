@@ -20,7 +20,7 @@ public class CustomerSpawner : MonoBehaviour
 
     void Update()
     {
-        if(currentTime < spawnTime)
+        if(!currentCustomer && currentTime < spawnTime)
         {
             currentTime += Time.deltaTime;
         }

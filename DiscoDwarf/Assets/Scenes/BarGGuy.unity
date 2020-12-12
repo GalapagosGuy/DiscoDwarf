@@ -9665,8 +9665,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.016266963, y: 0.17035685, z: 0.025403302}
-  m_Center: {x: 0.0016431838, y: -0.064992495, z: 0.0077016354}
+  m_Size: {x: 0.023035599, y: 0.17035688, z: 0.025403302}
+  m_Center: {x: -0.0017411256, y: -0.064992495, z: 0.007701636}
 --- !u!1001 &867448707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21952,6 +21952,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8679728365997832148, guid: b8ccb56bec6804146b73f4d600bba4b0, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679728365997832148, guid: b8ccb56bec6804146b73f4d600bba4b0, type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679728365997832148, guid: b8ccb56bec6804146b73f4d600bba4b0, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 9103953676196942817, guid: b8ccb56bec6804146b73f4d600bba4b0, type: 3}
       propertyPath: m_Name
       value: Player

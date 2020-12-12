@@ -9,6 +9,8 @@ public class MusicManager : MonoBehaviour
     public PlayerMovement movement;
     public GameObject beatHitMarker = null;
 
+    public GameObject[] musicListenersGO = null;
+
     [SerializeField]
     private float beatTempo = 120.0f;
     [SerializeField]
@@ -19,6 +21,7 @@ public class MusicManager : MonoBehaviour
     private AudioSource musicAudioSource = null;
     private float timeBetweenBeats = 0.0f;
     private bool canDoAction = false;
+    private IMusicListener[] musicListeners = null;
 
     public bool CanDoAction { get => canDoAction; }
 
@@ -37,6 +40,18 @@ public class MusicManager : MonoBehaviour
         timeBetweenBeats = 60.0f / beatTempo;
 
         StartPlayingMusic();
+
+        List<IMusicListener> listOfListeners = new List<IMusicListener>();
+
+        foreach (GameObject go in musicListenersGO)
+        {
+            if (go.GetComponent<IMusicListener>() != null)
+            {
+                listOfListeners.Add(go.GetComponent<IMusicListener>());
+            }
+        }
+
+        musicListeners = listOfListeners.ToArray();
     }
 
     public void StartPlayingMusic()
@@ -61,6 +76,9 @@ public class MusicManager : MonoBehaviour
         musicAudioSource.Play();
     }
 
+    private bool beatStarted = false;
+    private bool beatFinished = false;
+
     private void Update()
     {
         songTime += Time.time - previousFrameTime;
@@ -77,13 +95,43 @@ public class MusicManager : MonoBehaviour
         else
             canDoAction = false;
 
-        beatHitMarker?.SetActive(canDoAction);
+        //beatHitMarker?.SetActive(canDoAction);
+
+        //check beat start
+        if (songTime >= nextBeatCheckpoint - beforeBeatAcceptableInput && songTime <= nextBeatCheckpoint)
+        {
+            if (!beatStarted)
+                foreach (IMusicListener musicListener in musicListeners)
+                    musicListener.OnBeatStart();
+
+            beatStarted = true;
+        }
+        else
+            beatStarted = false;
+
+        //check beat finished
+        if (songTime <= previousBeatCheckpoint + afterBeatAcceptableInput && songTime >= previousBeatCheckpoint)
+        {
+            beatFinished = true;
+        }
+        else
+        {
+            if (beatFinished)
+                foreach (IMusicListener musicListener in musicListeners)
+                    musicListener.OnBeatFinished();
+
+            beatFinished = false;
+        }
+
 
         if (songTime >= nextBeatCheckpoint)
         {
             Debug.Log("pop");
             previousBeatCheckpoint = nextBeatCheckpoint;
             nextBeatCheckpoint += timeBetweenBeats;
+
+            foreach (IMusicListener musicListener in musicListeners)
+                musicListener.OnBeatCenter();
         }
     }
 

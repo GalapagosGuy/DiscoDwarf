@@ -265,6 +265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1831555123}
   beatHitMarker: {fileID: 1149060493}
+  musicListenersGO:
+  - {fileID: 1831555118}
+  - {fileID: 1149060493}
   beatTempo: 120
   beforeBeatAcceptableInput: 0.2
   afterBeatAcceptableInput: 0.2
@@ -743,6 +746,7 @@ GameObject:
   - component: {fileID: 1149060494}
   - component: {fileID: 1149060496}
   - component: {fileID: 1149060495}
+  - component: {fileID: 1149060497}
   m_Layer: 5
   m_Name: BeatHitMarker
   m_TagString: Untagged
@@ -807,6 +811,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149060493}
   m_CullTransparentMesh: 0
+--- !u!114 &1149060497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149060493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b896a2bb13a8534db43fc959331ef49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  mainBeatImage: {fileID: 1149060495}
 --- !u!1 &1298029505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementTime: 0.1
-  movementSpeed: 15
+  movementSpeed: 20
+  speedDrop: 40
+  minimumSpeed: 0
 --- !u!114 &1831555124
 MonoBehaviour:
   m_ObjectHideFlags: 0

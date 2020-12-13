@@ -20,20 +20,21 @@ public class CustomerSpawner : MonoBehaviour
 
     void Update()
     {
-        if(!currentCustomer && currentTime < spawnTime)
+        if (!currentCustomer && currentTime < spawnTime)
         {
             currentTime += Time.deltaTime;
         }
         else
         {
             currentTime = 0f;
-            if(!currentCustomer)
+            if (!currentCustomer && CustomersManager.Instance.CanSpawnCustomer())
                 SpawnCustomer();
         }
     }
 
     private void SpawnCustomer()
     {
-        currentCustomer = Instantiate(customerPrefabs[Random.Range(0,customerPrefabs.Length)], transform.position, Quaternion.identity);
+        CustomersManager.Instance.CustomerSpawned();
+        currentCustomer = Instantiate(customerPrefabs[Random.Range(0, customerPrefabs.Length)], transform.position, Quaternion.identity);
     }
 }

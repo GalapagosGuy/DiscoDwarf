@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &434838944286671551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016164271680020535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278530b83c9f7954aad4f65886a1929a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancePoint: {fileID: 7585545154565564288}
+  layerStep: 10
 --- !u!1 &7585545154565564288
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,8 +53,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8181900854567231255}
-  - component: {fileID: 409768385752579959}
-  - component: {fileID: 3989664434092728538}
   m_Layer: 0
   m_Name: DancingOrc
   m_TagString: Untagged
@@ -64,33 +76,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &409768385752579959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8181900854567231272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278530b83c9f7954aad4f65886a1929a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distancePoint: {fileID: 7585545154565564288}
-  layerStep: 10
---- !u!135 &3989664434092728538
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8181900854567231272}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6
-  m_Center: {x: 0, y: 1.33, z: 0}
 --- !u!1001 &8181900854608938468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}
+--- !u!1 &5016164271680020535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3753483856587531731, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}
+  m_PrefabInstance: {fileID: 8181900854608938468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5016164271680020528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3753483856587531732, guid: 6ce0da6c34219824d9a5df79ad15c363, type: 3}

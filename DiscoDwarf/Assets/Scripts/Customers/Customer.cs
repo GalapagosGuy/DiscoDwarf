@@ -256,8 +256,12 @@ public class Customer : InteractableObject
     {
         FindObjectOfType<HUDManager>().AddToHappyMeter(value);
     }
+
     private void GoHome()
     {
+        CustomersManager.Instance.CustomerGone();
+        SpriteLayerChanger.Instance.RemoveReference(GetComponentInChildren<SpritesContainer>());
+
         audioSource.clip = teleportOutClip;
         audioSource.Play();
 

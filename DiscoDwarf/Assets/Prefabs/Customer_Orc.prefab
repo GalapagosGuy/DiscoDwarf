@@ -108,8 +108,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 55fcce1d316a4a4499c63ff1dc6c3eb7, type: 3}
   - {fileID: 21300000, guid: 674a4aae0cbd4a24081d3fc4fb025681, type: 3}
   drinkBase: {fileID: 7282981713084546977}
-  waitingMinTime: 1
-  waitingMaxTime: 3
+  waitingMinTime: 2
+  waitingMaxTime: 5
   isReal: 1
   canvas: {fileID: 7603107437977031723}
 --- !u!65 &2415655642828856343

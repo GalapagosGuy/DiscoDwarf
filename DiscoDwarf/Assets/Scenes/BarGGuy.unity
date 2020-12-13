@@ -12131,7 +12131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d370c811d3d3e2447a74847a094f5d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCustomersAtTheSameTime: 8
+  maxCustomersAtTheSameTime: 6
 --- !u!4 &661797221
 Transform:
   m_ObjectHideFlags: 0

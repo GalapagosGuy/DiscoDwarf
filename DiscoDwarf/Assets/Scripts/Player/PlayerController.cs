@@ -43,7 +43,8 @@ public class PlayerController : IMusicListener
         {
             playerMovement?.Move(MovementDirection.Right);
         }
-        else if (Input.GetKeyDown(KeyCode.J))
+
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (!MusicManager.Instance.CanDoAction)
                 ComboCounter.Instance.BreakCombo();

@@ -29821,6 +29821,18 @@ PrefabInstance:
       propertyPath: endGameResult
       value: 
       objectReference: {fileID: 1607072058}
+    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
+      propertyPath: emotions.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: c7274a6d88ee1d342bdc8fb8c274220e, type: 3}
+    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
+      propertyPath: emotions.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 83bd1452f0fe1b64cbf91bb700715231, type: 3}
+    - target: {fileID: 2564991667764380849, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
+      propertyPath: emotions.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 70de5f26cf0434541b0aeb31428a8677, type: 3}
     - target: {fileID: 2564991667764380852, guid: e076dca881163fb4bae2f1c2e5bdb843, type: 3}
       propertyPath: m_Name
       value: HUD

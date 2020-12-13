@@ -694,7 +694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play again dwarf
+  m_text: Dance again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70f3b78329b1b064384f5915c0b0152a, type: 2}
   m_sharedMaterial: {fileID: -2990448132464003271, guid: 70f3b78329b1b064384f5915c0b0152a, type: 2}

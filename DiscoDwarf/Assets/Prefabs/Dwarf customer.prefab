@@ -57,15 +57,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266671269947841612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1531, y: 1.1531, z: 1.1531}
+  m_LocalPosition: {x: 0, y: 0, z: 0.018}
+  m_LocalScale: {x: 1.0235378, y: 1.0235378, z: 1.0235378}
   m_Children: []
   m_Father: {fileID: 4479162771729604882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.03, y: 0.223}
+  m_AnchoredPosition: {x: 0.03, y: 0.205}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3631500357080184105
@@ -132,15 +132,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3753692842529636054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1531, y: 1.1531, z: 1.1531}
+  m_LocalPosition: {x: 0, y: 0, z: 0.017999971}
+  m_LocalScale: {x: 1.0235378, y: 1.0235378, z: 1.0235378}
   m_Children: []
   m_Father: {fileID: 4479162771729604882}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.03, y: 0.223}
+  m_AnchoredPosition: {x: 0.03, y: 0.20500003}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8597849178701804404
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   - {r: 0.5943396, g: 0.295324, b: 0, a: 1}
   - {r: 0.3301887, g: 0.16945532, b: 0.17236188, a: 1}
   bodyParts:
-    arm: {fileID: 6042012583374314307}
+    accesories: {fileID: 6042012583374314307}
     skin: {fileID: 6042012583567101354}
     chest: {fileID: 6042012583278006391}
     bottom: {fileID: 6042012583505053373}
@@ -1173,9 +1173,17 @@ MonoBehaviour:
   - {fileID: 100120756227725925, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   - {fileID: 1695600278070250875, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   desiredDrinkImage: {fileID: 4970290744376637246}
+  drinkBases:
+  - {fileID: 21300000, guid: 5187e9a042e138147a82ae538dcf58eb, type: 3}
+  - {fileID: 21300000, guid: 66479ce3d565f33459cf760c0ac3f98d, type: 3}
+  - {fileID: 21300000, guid: 0bd4aabf2c8ffcd408d0f01b81728c89, type: 3}
+  drinkFills:
+  - {fileID: 21300000, guid: 40a04ca99cfe68a49a66436b04227b8e, type: 3}
+  - {fileID: 21300000, guid: 55fcce1d316a4a4499c63ff1dc6c3eb7, type: 3}
+  - {fileID: 21300000, guid: 674a4aae0cbd4a24081d3fc4fb025681, type: 3}
+  drinkBase: {fileID: 407270669712089056}
   isReal: 1
   canvas: {fileID: 5419785169007374987}
-  maxWaitingTime: 0
 --- !u!82 &4906862506329222236
 AudioSource:
   m_ObjectHideFlags: 0

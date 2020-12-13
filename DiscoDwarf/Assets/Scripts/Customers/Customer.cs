@@ -10,7 +10,7 @@ public class Customer : InteractableObject
     [System.Serializable]
     public struct Body
     {
-        public GameObject arm;
+        public GameObject accesories;
         public GameObject skin;
         public GameObject chest;
         public GameObject bottom;
@@ -33,15 +33,22 @@ public class Customer : InteractableObject
     private Image desiredDrinkImage;
 
     [SerializeField]
+    private Sprite[] drinkBases;
+
+    [SerializeField]
+    private Sprite[] drinkFills;
+
+    [SerializeField]
+    private Image drinkBase;
+
+
+    [SerializeField]
     private bool isReal;
 
     [SerializeField]
     private GameObject canvas;
 
     private float happinessMultiplier = 1f;
-
-    [SerializeField]
-    private float maxWaitingTime;
 
     private Drink.DRINKTYPE desiredDrink;
     private EMOTION emotion;
@@ -107,8 +114,8 @@ public class Customer : InteractableObject
 
     private void RandomAppearance()
     {
-        //bodyParts.arm.GetComponent<SpriteRenderer>().color = RandomColor();
-        //bodyParts.skin.GetComponent<SpriteRenderer>().color = Color.green * 0.75f;
+        if (bodyParts.accesories)
+            bodyParts.accesories.GetComponent<SpriteRenderer>().color = RandomColor();
         if (bodyParts.chest)
             bodyParts.chest.GetComponent<SpriteRenderer>().color = RandomColor();
         if (bodyParts.bottom)
@@ -165,6 +172,8 @@ public class Customer : InteractableObject
     private void DesireRandomDrink()
     {
         desiredDrink = (Drink.DRINKTYPE)Random.Range(0, 3);
+        desiredDrinkImage.sprite = drinkFills[(int)desiredDrink];
+        drinkBase.sprite = drinkBases[(int)desiredDrink];
         desiredDrinkImage.color = colors[(int)desiredDrink];
 
         if (isReal)

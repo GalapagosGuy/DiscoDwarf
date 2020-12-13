@@ -60,3 +60,7 @@ MonoBehaviour:
   waterToSpawn: {fileID: 3401520502393287818, guid: 2839dc295be80bb48a1bfd8f24954483, type: 3}
   timeBetweenSpawns: 5
   chancesToSpawn: 10
+  availableColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.908308, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}

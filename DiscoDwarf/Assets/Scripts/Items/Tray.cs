@@ -13,6 +13,9 @@ public class Tray : Item
     [SerializeField]
     private GameObject[] drinkTransforms;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     private bool[] drinkPlace;
 
     public int MaxSize { get => maxSize; }
@@ -75,6 +78,7 @@ public class Tray : Item
         drinkPlace[place] = false;
         //HUDManager.RemoveDrinkFromHud(place);
         drinkNumber--;
+        audioSource.Play();
     }
 
     private int FreeSpaceOnTray()

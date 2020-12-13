@@ -107,7 +107,11 @@ public class Customer : InteractableObject
         RandomAppearance();
         DesireRandomDrink();
         if (isReal)
+        {
             hudManager.AddDesiredDrink(desiredDrink);
+            StartCoroutine(GetComponentInChildren<ModelDisolver>().Undissolve(1f));
+        }
+            
         if (!isReal)
             canvas.SetActive(false);
     }
@@ -186,7 +190,8 @@ public class Customer : InteractableObject
     }
     private void GoHome()
     {
-        Destroy(this.gameObject);
+        StartCoroutine(GetComponentInChildren<ModelDisolver>().Dissolve(1f));
+        Destroy(this.gameObject, 1.05f);
     }
 
 }

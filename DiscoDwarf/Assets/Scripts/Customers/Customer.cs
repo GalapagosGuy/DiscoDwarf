@@ -32,6 +32,12 @@ public class Customer : InteractableObject
     [SerializeField]
     private Image desiredDrinkImage;
 
+    [SerializeField]
+    private bool isReal;
+
+    [SerializeField]
+    private GameObject canvas;
+
     private float happinessMultiplier = 1f;
 
     [SerializeField]
@@ -64,7 +70,7 @@ public class Customer : InteractableObject
 
     public override void Use(ItemSlot playersItemSlot)
     {
-        if (playersItemSlot.Item)
+        if (isReal && playersItemSlot.Item)
         {
             if (playersItemSlot.Item.GetComponent<Tray>())
             {
@@ -94,15 +100,20 @@ public class Customer : InteractableObject
         RandomAppearance();
         DesireRandomDrink();
         hudManager.AddDesiredDrink(desiredDrink);
+        if (!isReal)
+            canvas.SetActive(false);
     }
 
     private void RandomAppearance()
     {
         //bodyParts.arm.GetComponent<SpriteRenderer>().color = RandomColor();
         //bodyParts.skin.GetComponent<SpriteRenderer>().color = Color.green * 0.75f;
-        bodyParts.chest.GetComponent<SpriteRenderer>().color = RandomColor();
-        bodyParts.bottom.GetComponent<SpriteRenderer>().color = RandomColor();
-        bodyParts.hair.GetComponent<SpriteRenderer>().color = RandomHairColor();
+        if (bodyParts.chest)
+            bodyParts.chest.GetComponent<SpriteRenderer>().color = RandomColor();
+        if(bodyParts.bottom)
+            bodyParts.bottom.GetComponent<SpriteRenderer>().color = RandomColor();
+        if (bodyParts.hair)
+            bodyParts.hair.GetComponent<SpriteRenderer>().color = RandomHairColor();
     }
     private Color RandomHairColor()
     {
@@ -124,7 +135,8 @@ public class Customer : InteractableObject
 
     private void UpdateHudManager()
     {
-        hudManager.SubstractFromHappyMeter(happinessSubstract * Time.deltaTime);
+        if(isReal)
+            hudManager.SubstractFromHappyMeter(happinessSubstract * Time.deltaTime);
     }
 
     private void ChangeEmotion()

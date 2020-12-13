@@ -5,7 +5,7 @@ using UnityEngine;
 public class CustomerSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject customerPrefab;
+    private GameObject[] customerPrefabs;
 
     [SerializeField]
     private float spawnTime;
@@ -34,6 +34,6 @@ public class CustomerSpawner : MonoBehaviour
 
     private void SpawnCustomer()
     {
-        currentCustomer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+        currentCustomer = Instantiate(customerPrefabs[Random.Range(0,customerPrefabs.Length)], transform.position, Quaternion.identity);
     }
 }

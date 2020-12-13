@@ -94,6 +94,8 @@ MonoBehaviour:
   - {fileID: 100120756227725925, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   - {fileID: 1695600278070250875, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   desiredDrinkImage: {fileID: 7377072527697406375}
+  isReal: 1
+  canvas: {fileID: 7603107437977031723}
   maxWaitingTime: 0
 --- !u!65 &2415655642828856343
 BoxCollider:
@@ -106,8 +108,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6412234, y: 4.6965523, z: 1}
-  m_Center: {x: 0.121385336, y: 1.3580623, z: 0}
+  m_Size: {x: 3.986189, y: 4.6965523, z: 3.948821}
+  m_Center: {x: 0.18490648, y: 1.3580623, z: 0.047434807}
 --- !u!1 &2857163987284064656
 GameObject:
   m_ObjectHideFlags: 0

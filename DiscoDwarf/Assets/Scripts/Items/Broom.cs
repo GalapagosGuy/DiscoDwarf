@@ -4,5 +4,13 @@ using UnityEngine;
 
 public class Broom : Item
 {
-
+    AudioSource audioSource;
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    public void PlayBroomingSound()
+    {
+        audioSource.Play();
+    }
 }

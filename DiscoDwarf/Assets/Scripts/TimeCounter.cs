@@ -6,19 +6,23 @@ using TMPro;
 
 public class TimeCounter : MonoBehaviour
 {
-    private static float time = 0;
-    private static TextMeshProUGUI text;
-
-    public static float CTime() { return time; }
+    private float time = 300;
+    private TextMeshProUGUI text;
+    private HUDManager HUDManager;
 
     private void Awake()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        text = GetComponentInChildren<TextMeshProUGUI>();
+        HUDManager = FindObjectOfType<HUDManager>();
     }
 
     void Update()
     {
-        time += Time.deltaTime;
+        if (time <= 0)
+            HUDManager.EndGame("Funktastic!");
+        else
+            time -= Time.deltaTime;
+        
         UpdateDisplay();
     }
 
@@ -40,6 +44,4 @@ public class TimeCounter : MonoBehaviour
         text.text = _text;
     }
 
-    public static string GetTime() { return text.text; }
-    public static void ResetTime() { time = 0; }
 }

@@ -1618,6 +1618,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 5313550838104336399, guid: e1c40df8805d9dc47b7d044523eb8e50, type: 3}
+      propertyPath: particlesRed
+      value: 
+      objectReference: {fileID: 272043217745890695, guid: fbe6cc047a9973c488cb469c446f8d9d, type: 3}
+    - target: {fileID: 5313550838104336399, guid: e1c40df8805d9dc47b7d044523eb8e50, type: 3}
+      propertyPath: particlesBlue
+      value: 
+      objectReference: {fileID: 272043217745890695, guid: c65c26e8a5a32204ab923bafe3eda569, type: 3}
+    - target: {fileID: 5313550838104336399, guid: e1c40df8805d9dc47b7d044523eb8e50, type: 3}
+      propertyPath: particlesYellow
+      value: 
+      objectReference: {fileID: 272043217745890695, guid: 4615ad48b15b02043a6c8f0bb6383206, type: 3}
     - target: {fileID: 5503017222653306947, guid: e1c40df8805d9dc47b7d044523eb8e50, type: 3}
       propertyPath: m_Name
       value: Tray

@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Tray : Item
 {
+    public GameObject particlesRed = null;
+    public GameObject particlesYellow = null;
+    public GameObject particlesBlue = null;
+
     private GameObject[] drinks;
     private HUDManager HUDManager;
     [SerializeField]
@@ -44,18 +48,42 @@ public class Tray : Item
 
     public bool SearchForDesireDrink(Drink.DRINKTYPE desiredDrink)
     {
-        for(int i = 0; i < maxSize; i++)
+        for (int i = 0; i < maxSize; i++)
         {
             if (drinks[i] && drinks[i].GetComponent<Drink>().DrinkType == desiredDrink)
             {
                 GameObject currentDrink = drinks[i];
+                ShowParticles(currentDrink, desiredDrink);
+
                 RemoveDrink(drinks[i], i);
-               
                 Destroy(currentDrink);
                 return true;
-            }     
+            }
         }
         return false;
+    }
+
+    private void ShowParticles(GameObject currentDrink, Drink.DRINKTYPE type)
+    {
+        if (particlesRed && particlesYellow && particlesBlue)
+        {
+            GameObject ps = null;
+
+            switch (type)
+            {
+                case Drink.DRINKTYPE.Drink1:
+                    ps = Instantiate(particlesRed, currentDrink.transform.position, Quaternion.identity);
+                    break;
+                case Drink.DRINKTYPE.Drink2:
+                    ps = Instantiate(particlesYellow, currentDrink.transform.position, Quaternion.identity);
+                    break;
+                case Drink.DRINKTYPE.Drink3:
+                    ps = Instantiate(particlesBlue, currentDrink.transform.position, Quaternion.identity);
+                    break;
+            }
+
+            Destroy(ps, 2.0f);
+        }
     }
 
     public void AddDrink(GameObject drink)
@@ -83,14 +111,14 @@ public class Tray : Item
 
     private int FreeSpaceOnTray()
     {
-        for(int i = 0; i < drinkPlace.Length; i++)
+        for (int i = 0; i < drinkPlace.Length; i++)
         {
             if (!drinkPlace[i])
             {
                 drinkPlace[i] = true;
                 return i;
             }
-                
+
         }
         return 0;
     }
@@ -98,24 +126,24 @@ public class Tray : Item
     {
         for (int i = 0; i < maxSize; i++)
         {
-            if(drinks[i])
+            if (drinks[i])
             {
                 Destroy(drinks[i]);
-                drinks[i] = null;  
+                drinks[i] = null;
             }
             drinkPlace[i] = false;
         }
         drinkNumber = 0;
-        
+
         Debug.Log("Removed all drinks from tray");
 
     }
 
 
     public Color[] colors = new Color[]
-{
+    {
         Color.red,
         Color.green,
         Color.cyan
-};
+    };
 }

@@ -11,9 +11,13 @@ public class PlayerController : IMusicListener
     private InteractableObject interactableObject;
     private ItemSlot itemSlot;
     private RoboHand roboHand;
+    private bool tutorial = true;
+    [SerializeField]
+    private GameObject startCanvas;
 
     private void Awake()
     {
+        //Time.timeScale = 0;
         itemSlot = GetComponent<ItemSlot>();
         roboHand = GetComponent<RoboHand>();
     }
@@ -46,20 +50,31 @@ public class PlayerController : IMusicListener
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if (!MusicManager.Instance.CanDoAction)
-                ComboCounter.Instance.BreakCombo();
+            if(tutorial)
+            {
+                Time.timeScale = 1;
+                startCanvas.SetActive(false);
+                tutorial = false;
+                
+            }
+            else
+            {
+                if (!MusicManager.Instance.CanDoAction)
+                    ComboCounter.Instance.BreakCombo();
 
-            if (!MusicManager.Instance.CanDoAction || !canDoLocalAction)
-                return;
+                if (!MusicManager.Instance.CanDoAction || !canDoLocalAction)
+                    return;
 
-            ComboCounter.Instance?.InputPressed();
+                ComboCounter.Instance?.InputPressed();
 
-            if (interactableObject)
-                interactableObject.Use(itemSlot);
+                if (interactableObject)
+                    interactableObject.Use(itemSlot);
 
-            canDoLocalAction = false;
+                canDoLocalAction = false;
 
-            idleParticles?.Play();
+                idleParticles?.Play();
+            }
+            
         }
         else if (Input.GetKeyDown(KeyCode.K))
         {

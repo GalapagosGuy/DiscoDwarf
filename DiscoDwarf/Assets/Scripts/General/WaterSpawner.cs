@@ -12,6 +12,8 @@ public class WaterSpawner : MonoBehaviour
     [SerializeField]
     private float chancesToSpawn = 20.0f;
 
+    public Color[] availableColors;
+
     private float currentSpawnTime = 0.0f;
     private float radius = 0.0f;
 
@@ -41,6 +43,8 @@ public class WaterSpawner : MonoBehaviour
 
                     spawnedWater.transform.position = position;
                     spawnedWater.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
+
+                    spawnedWater.GetComponentInChildren<SpriteRenderer>().material.color = availableColors[Random.Range(0, availableColors.Length)];
                 }
             }
         }

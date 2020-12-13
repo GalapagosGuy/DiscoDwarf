@@ -111,7 +111,7 @@ public class Customer : InteractableObject
         //bodyParts.skin.GetComponent<SpriteRenderer>().color = Color.green * 0.75f;
         if (bodyParts.chest)
             bodyParts.chest.GetComponent<SpriteRenderer>().color = RandomColor();
-        if(bodyParts.bottom)
+        if (bodyParts.bottom)
             bodyParts.bottom.GetComponent<SpriteRenderer>().color = RandomColor();
         if (bodyParts.hair)
             bodyParts.hair.GetComponent<SpriteRenderer>().color = RandomHairColor();
@@ -136,7 +136,7 @@ public class Customer : InteractableObject
 
     private void UpdateHudManager()
     {
-        if(isReal)
+        if (isReal)
             hudManager.SubstractFromHappyMeter(happinessSubstract * Time.deltaTime);
     }
 
@@ -161,10 +161,14 @@ public class Customer : InteractableObject
 
         emotionImage.sprite = emotionSprites[(int)emotion];
     }
+
     private void DesireRandomDrink()
     {
         desiredDrink = (Drink.DRINKTYPE)Random.Range(0, 3);
         desiredDrinkImage.color = colors[(int)desiredDrink];
+
+        if (isReal)
+            GetComponent<AudioSource>()?.Play();
     }
 
     private void AddHappiness(float value)

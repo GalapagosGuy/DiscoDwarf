@@ -6,7 +6,8 @@ public class RoboHand : MonoBehaviour
 {
     public ItemSlot itemSlot;
     public Hand[] hands;
-
+    [SerializeField]
+    private AudioSource audioSource;
     private int currentIndex = 0;
 
     public void SwapHand()
@@ -28,6 +29,7 @@ public class RoboHand : MonoBehaviour
         else
             itemSlot.AddItemToSlot(Instantiate(hands[currentIndex].handObject));
 
+        audioSource.Play();
         ChangeHand(hands[currentIndex].type);
     }
 

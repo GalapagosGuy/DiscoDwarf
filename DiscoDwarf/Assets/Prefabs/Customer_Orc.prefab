@@ -78,6 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d96060c3660ab44b38774007a1b6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportInClip: {fileID: 8300000, guid: 44f98d314b21e9248b8b7f6f30955a16, type: 3}
+  teleportOutClip: {fileID: 8300000, guid: 7541230fec42a204794df104b924e9f8, type: 3}
+  thirstyClip: {fileID: 8300000, guid: d043e9c827ed4c9478f6409b50d2128e, type: 3}
   hairColors:
   - {r: 0.7529412, g: 0.7137255, b: 0.36078432, a: 1}
   - {r: 0.18867922, g: 0.070099525, b: 0.04343182, a: 1}
@@ -95,6 +98,7 @@ MonoBehaviour:
   - {fileID: 100120756227725925, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   - {fileID: 1695600278070250875, guid: e6c14bc6a14a59f4ea9c49d13052d2dc, type: 3}
   desiredDrinkImage: {fileID: 7377072527697406375}
+  drinkBackground: {fileID: 6860483526983634085}
   drinkBases:
   - {fileID: 21300000, guid: 5187e9a042e138147a82ae538dcf58eb, type: 3}
   - {fileID: 21300000, guid: 66479ce3d565f33459cf760c0ac3f98d, type: 3}
@@ -104,6 +108,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 55fcce1d316a4a4499c63ff1dc6c3eb7, type: 3}
   - {fileID: 21300000, guid: 674a4aae0cbd4a24081d3fc4fb025681, type: 3}
   drinkBase: {fileID: 7282981713084546977}
+  waitingMinTime: 1
+  waitingMaxTime: 3
   isReal: 1
   canvas: {fileID: 7603107437977031723}
 --- !u!65 &2415655642828856343
@@ -138,11 +144,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -175,7 +181,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -259,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23992c35402009419eb6089d94e89e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderers: []
 --- !u!1 &5338639667061089293
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7683686133136435355
 RectTransform:
   m_ObjectHideFlags: 0

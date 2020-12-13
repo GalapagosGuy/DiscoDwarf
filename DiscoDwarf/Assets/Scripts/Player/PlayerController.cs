@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : IMusicListener
 {
     public PlayerMovement playerMovement;
+    public ParticleSystem idleParticles;
+    public Animator swaper;
+
     private InteractableObject interactableObject;
     private ItemSlot itemSlot;
     private RoboHand roboHand;
@@ -54,6 +57,8 @@ public class PlayerController : IMusicListener
                 interactableObject.Use(itemSlot);
 
             canDoLocalAction = false;
+
+            idleParticles?.Play();
         }
         else if (Input.GetKeyDown(KeyCode.K))
         {
@@ -69,6 +74,9 @@ public class PlayerController : IMusicListener
                 roboHand.SwapHand();
 
             canDoLocalAction = false;
+
+            idleParticles?.Play();
+            swaper?.SetTrigger("swapTrigger");
         }
 
     }

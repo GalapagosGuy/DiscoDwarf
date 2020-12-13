@@ -7,6 +7,10 @@ using Random = UnityEngine.Random;
 
 public class Customer : InteractableObject
 {
+    public AudioClip teleportInClip = null;
+    public AudioClip teleportOutClip = null;
+    public AudioClip thirstyClip = null;
+
     [System.Serializable]
     public struct Body
     {
@@ -33,6 +37,9 @@ public class Customer : InteractableObject
     private Image desiredDrinkImage;
 
     [SerializeField]
+    private GameObject drinkBackground;
+
+    [SerializeField]
     private Sprite[] drinkBases;
 
     [SerializeField]
@@ -40,6 +47,20 @@ public class Customer : InteractableObject
 
     [SerializeField]
     private Image drinkBase;
+
+    [SerializeField]
+    private float waitingMinTime = 4.0f;
+
+    [SerializeField]
+    private float waitingMaxTime = 10.0f;
+
+    private float waitingTime = 0.0f;
+    private float currentWaitingTime = 0.0f;
+
+    private bool isWaitingForOrderDrink = false;
+    private bool isWaitingForGoHome = false;
+
+    private AudioSource audioSource = null;
 
 
     [SerializeField]
@@ -61,6 +82,8 @@ public class Customer : InteractableObject
 
     private HUDManager hudManager;
 
+    private bool canBeUsed = true;
+
     private Color[] colors = new Color[]
     {
         Color.red,
@@ -77,6 +100,9 @@ public class Customer : InteractableObject
 
     public override void Use(ItemSlot playersItemSlot)
     {
+        if (!canBeUsed)
+            return;
+
         if (isReal && playersItemSlot.Item)
         {
             if (playersItemSlot.Item.GetComponent<Tray>())
@@ -87,7 +113,16 @@ public class Customer : InteractableObject
                     SpriteLayerChanger.Instance.RemoveReference(this.GetComponentInChildren<SpritesContainer>());
                     hudManager.RemoveDesiredDrink(desiredDrink);
                     hudManager.AddPoints(pointBonus);
-                    GoHome();
+                    desiredDrinkImage.enabled = false;
+                    drinkBase.enabled = false;
+                    drinkBackground.SetActive(false);
+                    emotionImage.gameObject.SetActive(false);
+                    canBeUsed = false;
+
+                    currentWaitingTime = 0.0f;
+                    waitingTime = Random.Range(waitingMinTime, waitingMaxTime);
+                    isWaitingForGoHome = true;
+
                     Debug.Log($"Customer got desired drink - {desiredDrink}");
                 }
                 else
@@ -102,16 +137,22 @@ public class Customer : InteractableObject
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         hudManager = FindObjectOfType<HUDManager>();
         currentHappiness = maxHappiness;
         RandomAppearance();
-        DesireRandomDrink();
         if (isReal)
         {
-            hudManager.AddDesiredDrink(desiredDrink);
             StartCoroutine(GetComponentInChildren<ModelDisolver>().Undissolve(1f));
+            audioSource.clip = teleportInClip;
+            audioSource.Play();
+
+            waitingTime = Random.Range(waitingMinTime, waitingMaxTime);
+            currentWaitingTime = 0.0f;
+            isWaitingForOrderDrink = true;
         }
-            
+
         if (!isReal)
             canvas.SetActive(false);
     }
@@ -143,6 +184,25 @@ public class Customer : InteractableObject
         }
         ChangeEmotion();
         UpdateHudManager();
+
+        if (isWaitingForOrderDrink || isWaitingForGoHome)
+        {
+            currentWaitingTime += Time.deltaTime;
+
+            if (currentWaitingTime >= waitingTime)
+            {
+                if (isWaitingForOrderDrink)
+                {
+                    DesireRandomDrink();
+                    isWaitingForOrderDrink = false;
+                }
+                else if (isWaitingForGoHome)
+                {
+                    GoHome();
+                    isWaitingForGoHome = false;
+                }
+            }
+        }
     }
 
     private void UpdateHudManager()
@@ -175,13 +235,21 @@ public class Customer : InteractableObject
 
     private void DesireRandomDrink()
     {
+        canvas.SetActive(true);
+        drinkBackground.SetActive(true);
+        emotionImage.gameObject.SetActive(true);
         desiredDrink = (Drink.DRINKTYPE)Random.Range(0, 3);
         desiredDrinkImage.sprite = drinkFills[(int)desiredDrink];
         drinkBase.sprite = drinkBases[(int)desiredDrink];
         desiredDrinkImage.color = colors[(int)desiredDrink];
 
+        hudManager.AddDesiredDrink(desiredDrink);
+
         if (isReal)
-            GetComponent<AudioSource>()?.Play();
+        {
+            audioSource.clip = thirstyClip;
+            audioSource.Play();
+        }
     }
 
     private void AddHappiness(float value)
@@ -190,6 +258,9 @@ public class Customer : InteractableObject
     }
     private void GoHome()
     {
+        audioSource.clip = teleportOutClip;
+        audioSource.Play();
+
         StartCoroutine(GetComponentInChildren<ModelDisolver>().Dissolve(1f));
         Destroy(this.gameObject, 1.05f);
     }

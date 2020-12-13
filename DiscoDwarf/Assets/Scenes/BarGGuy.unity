@@ -13563,8 +13563,8 @@ MonoBehaviour:
   movement: {fileID: 1831555123}
   beatHitMarker: {fileID: 1186615376}
   beatTempo: 120
-  beforeBeatAcceptableInput: 0.1
-  afterBeatAcceptableInput: 0.2
+  beforeBeatAcceptableInput: 0.22
+  afterBeatAcceptableInput: 0.22
 --- !u!82 &659125560
 AudioSource:
   m_ObjectHideFlags: 0

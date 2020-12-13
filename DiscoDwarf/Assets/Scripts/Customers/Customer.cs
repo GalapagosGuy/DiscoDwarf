@@ -99,7 +99,8 @@ public class Customer : InteractableObject
         currentHappiness = maxHappiness;
         RandomAppearance();
         DesireRandomDrink();
-        hudManager.AddDesiredDrink(desiredDrink);
+        if (isReal)
+            hudManager.AddDesiredDrink(desiredDrink);
         if (!isReal)
             canvas.SetActive(false);
     }

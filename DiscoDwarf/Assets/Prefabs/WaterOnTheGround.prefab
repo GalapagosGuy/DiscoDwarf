@@ -157,4 +157,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ea2f5ecf9f9fd42bfc343b44a8b2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleEffect: {fileID: 1987727194818488717, guid: 97c711932dd212549b629073d7d72e20, type: 3}
   substractValue: 0.2

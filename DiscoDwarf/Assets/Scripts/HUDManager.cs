@@ -87,6 +87,7 @@ public class HUDManager : MonoBehaviour
 
     public void EndGame(string result)
     {
+        FindObjectOfType<PlayerController>().enabled = false;
         EndGameCanvas.SetActive(true);
         endGameResult.text = result;
         endGamePoints.text = points.ToString();

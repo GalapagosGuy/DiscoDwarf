@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : IMusicListener
 {
     public Animator playerAnimator;
+    public ParticleSystem movementParticles;
 
     [SerializeField]
     private float movementTime = 0.1f;
@@ -61,6 +62,8 @@ public class PlayerMovement : IMusicListener
         canChangeDirection = false;
 
         currentMovementSpeed = movementSpeed;
+
+        movementParticles?.Play();
 
         //playerAnimator?.SetTrigger("rideTrigger");
     }

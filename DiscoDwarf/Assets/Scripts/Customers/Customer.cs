@@ -63,6 +63,7 @@ public class Customer : InteractableObject
     private AudioSource audioSource = null;
 
 
+    private BoxCollider collider;
     [SerializeField]
     private bool isReal;
 
@@ -73,7 +74,7 @@ public class Customer : InteractableObject
 
     private Drink.DRINKTYPE desiredDrink;
     private EMOTION emotion;
-    private float happinessBonus = 10f;
+    private float happinessBonus = 13f;
     private int pointBonus = 15;
 
     private float currentHappiness;
@@ -103,7 +104,7 @@ public class Customer : InteractableObject
         if (!canBeUsed)
             return;
 
-        if (isReal && playersItemSlot.Item)
+        if (isReal && playersItemSlot.Item && !isWaitingForOrderDrink)
         {
             if (playersItemSlot.Item.GetComponent<Tray>())
             {
@@ -113,12 +114,15 @@ public class Customer : InteractableObject
                     SpriteLayerChanger.Instance.RemoveReference(this.GetComponentInChildren<SpritesContainer>());
                     hudManager.RemoveDesiredDrink(desiredDrink);
                     hudManager.AddPoints(pointBonus);
+                    canvas.SetActive(false);
+                    /*
                     desiredDrinkImage.enabled = false;
                     drinkBase.enabled = false;
                     drinkBackground.SetActive(false);
                     emotionImage.gameObject.SetActive(false);
+                    */
                     canBeUsed = false;
-
+                    collider.enabled = false;
                     currentWaitingTime = 0.0f;
                     waitingTime = Random.Range(waitingMinTime, waitingMaxTime);
                     isWaitingForGoHome = true;
@@ -142,6 +146,8 @@ public class Customer : InteractableObject
         hudManager = FindObjectOfType<HUDManager>();
         currentHappiness = maxHappiness;
         RandomAppearance();
+        collider = GetComponent<BoxCollider>();
+        collider.enabled = false;
         if (isReal)
         {
             StartCoroutine(GetComponentInChildren<ModelDisolver>().Undissolve(1f));
@@ -178,7 +184,7 @@ public class Customer : InteractableObject
     }
     private void Update()
     {
-        if (currentHappiness > 0)
+        if (currentHappiness > 0 && !isWaitingForOrderDrink)
         {
             currentHappiness -= Time.deltaTime * happinessMultiplier;
         }
@@ -194,6 +200,7 @@ public class Customer : InteractableObject
                 if (isWaitingForOrderDrink)
                 {
                     DesireRandomDrink();
+                    collider.enabled = true;
                     isWaitingForOrderDrink = false;
                 }
                 else if (isWaitingForGoHome)
@@ -207,7 +214,7 @@ public class Customer : InteractableObject
 
     private void UpdateHudManager()
     {
-        if (isReal)
+        if (isReal && !hudManager.timeStopped)
             hudManager.SubstractFromHappyMeter(happinessSubstract * Time.deltaTime);
     }
 

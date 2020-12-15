@@ -17,6 +17,8 @@ public class Detector : MonoBehaviour
         {
             //Debug.Log($"{other.name} is now in range to use");
             playerController.SetInteractableObject(other.GetComponent<InteractableObject>());
+            if (other.GetComponent<DrinkMachine>())
+                other.GetComponent<DrinkMachine>().TurnOnInfo(true);
         }
     }
 
@@ -25,6 +27,8 @@ public class Detector : MonoBehaviour
         if (other.GetComponent<InteractableObject>())
         {
             playerController.SetInteractableObject(null);
+            if (other.GetComponent<DrinkMachine>())
+                other.GetComponent<DrinkMachine>().TurnOnInfo(false);
         }
     }
 }

@@ -18,7 +18,6 @@ public class PlayerController : IMusicListener
 
     private void Awake()
     {
-        //Time.timeScale = 0;
         itemSlot = GetComponent<ItemSlot>();
         roboHand = GetComponent<RoboHand>();
     }
@@ -32,28 +31,33 @@ public class PlayerController : IMusicListener
 
     private void ProcessMovement()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if(!tutorial)
         {
-            playerMovement?.Move(MovementDirection.Forward);
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                playerMovement?.Move(MovementDirection.Forward);
+            }
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                playerMovement?.Move(MovementDirection.Backward);
+            }
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                playerMovement?.Move(MovementDirection.Left);
+            }
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                playerMovement?.Move(MovementDirection.Right);
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            playerMovement?.Move(MovementDirection.Backward);
-        }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            playerMovement?.Move(MovementDirection.Left);
-        }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            playerMovement?.Move(MovementDirection.Right);
-        }
+
 
         if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z))
         {
             if(tutorial)
             {
                 Time.timeScale = 1;
+                FindObjectOfType<HUDManager>().timeStopped = false;
                 startCanvas.SetActive(false);
                 tutorial = false;
                 
@@ -98,6 +102,11 @@ public class PlayerController : IMusicListener
         if(!Application.isEditor && Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        }
+        if (Application.isEditor && Input.GetKeyDown(KeyCode.F1))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         }
 
     }

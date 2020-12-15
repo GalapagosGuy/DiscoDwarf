@@ -16,15 +16,17 @@ public class WaterSpawner : MonoBehaviour
 
     private float currentSpawnTime = 0.0f;
     private float radius = 0.0f;
-
+    private HUDManager hudManager;
     private void Start()
     {
         radius = GetComponent<SphereCollider>().radius;
+        hudManager = FindObjectOfType<HUDManager>();
     }
 
     private void Update()
     {
-        currentSpawnTime += Time.deltaTime;
+        if(!hudManager.timeStopped)
+            currentSpawnTime += Time.deltaTime;
 
         if (currentSpawnTime >= timeBetweenSpawns)
         {

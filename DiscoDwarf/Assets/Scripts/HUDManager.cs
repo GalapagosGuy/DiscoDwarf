@@ -46,6 +46,7 @@ public class HUDManager : MonoBehaviour
 
     private float happyMeter;
     private float maxHappyMeter = 100f;
+    public bool timeStopped = true;
 
     private int[] desiredDrinks = new int[3];
 
@@ -87,6 +88,7 @@ public class HUDManager : MonoBehaviour
 
     public void EndGame(string result)
     {
+        timeStopped = true;
         FindObjectOfType<PlayerController>().enabled = false;
         EndGameCanvas.SetActive(true);
         endGameResult.text = result;
@@ -98,7 +100,6 @@ public class HUDManager : MonoBehaviour
     }
     public void AddPoints(int value)
     {
-       
         points += (int)(value * pointsMultiplier);
         pointsText.text = points.ToString();
     }

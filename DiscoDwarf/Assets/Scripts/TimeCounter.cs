@@ -6,6 +6,7 @@ using TMPro;
 
 public class TimeCounter : MonoBehaviour
 {
+    [SerializeField]
     private float time = 300;
     private TextMeshProUGUI text;
     private HUDManager HUDManager;
@@ -20,7 +21,7 @@ public class TimeCounter : MonoBehaviour
     {
         if (time <= 0)
             HUDManager.EndGame("Funktastic!");
-        else
+        else if(!HUDManager.timeStopped)
             time -= Time.deltaTime;
         
         UpdateDisplay();

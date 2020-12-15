@@ -19,7 +19,8 @@ public class WaterOnFloor : MonoBehaviour
 
     private void Update()
     {
-        hudManager.SubstractFromHappyMeter(substractValue * Time.deltaTime);
+        if(!hudManager.timeStopped)
+            hudManager.SubstractFromHappyMeter(substractValue * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

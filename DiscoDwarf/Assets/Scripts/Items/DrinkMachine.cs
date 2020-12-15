@@ -7,6 +7,9 @@ public class DrinkMachine : InteractableObject
     [SerializeField]
     private GameObject servedDrink;
 
+    [SerializeField]
+    private GameObject arrowCanvas;
+
     public override void Use(ItemSlot playersItemSlot)
     {
         GameObject itemInHand = null;
@@ -28,6 +31,11 @@ public class DrinkMachine : InteractableObject
         }
         else
             Debug.Log($"No Tray in hands - itemslot occupied by {itemInHand.name}");
+    }
+
+    public void TurnOnInfo(bool turnOn)
+    {
+        arrowCanvas.SetActive(turnOn);
     }
 
 }

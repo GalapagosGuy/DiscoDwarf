@@ -3698,15 +3698,15 @@ MonoBehaviour:
   m_text: 'Make every action <color=#FF1ADA> to rythm</color>!
 
 
-    <color=#FF1ADA>WASD</color>
+    <color=#FF1ADA>WASD/Arrows</color>
     to move
 
 
-    <color=#FF1ADA>J</color> to pick up and give drinks to clients
+    <color=#FF1ADA>J or z</color> to pick up and give drinks to clients
 
 
-    <color=#FF1ADA>K</color>
-    to swap mechanical hand from tray to broom
+    <color=#FF1ADA>K
+    or x</color> to swap mechanical hand from tray to broom
 
 
     Music by <color=#FF1ADA>Alex

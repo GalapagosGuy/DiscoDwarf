@@ -12,10 +12,11 @@ public class CustomerSpawner : MonoBehaviour
 
     private GameObject currentCustomer;
     private float currentTime;
-
+    private HUDManager hudManager;
     private void Awake()
     {
         currentTime = Random.Range(0f, spawnTime);
+        hudManager = FindObjectOfType<HUDManager>();
     }
 
     void Update()
@@ -27,7 +28,7 @@ public class CustomerSpawner : MonoBehaviour
         else
         {
             currentTime = 0f;
-            if (!currentCustomer && CustomersManager.Instance.CanSpawnCustomer())
+            if (!currentCustomer && CustomersManager.Instance.CanSpawnCustomer() && !hudManager.timeStopped)
                 SpawnCustomer();
         }
     }
